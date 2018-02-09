@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>820</x>
-      <y>80</y>
+      <x>810</x>
+      <y>0</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -27,8 +27,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>340</y>
+      <x>510</x>
+      <y>320</y>
       <w>210</w>
       <h>230</h>
     </coordinates>
@@ -43,8 +43,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>820</x>
-      <y>340</y>
+      <x>810</x>
+      <y>320</y>
       <w>210</w>
       <h>230</h>
     </coordinates>
@@ -65,8 +65,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>820</x>
-      <y>620</y>
+      <x>810</x>
+      <y>610</y>
       <w>210</w>
       <h>270</h>
     </coordinates>
@@ -80,7 +80,7 @@
 -qty: int
 -threshold: int
 -alertMessage: string
--purchaseHistory[]: purchase
+-transHistory[]: transaction
 --
 +stock()
 +addQty()
@@ -93,7 +93,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1110</x>
-      <y>340</y>
+      <y>320</y>
       <w>210</w>
       <h>230</h>
     </coordinates>
@@ -109,88 +109,79 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>910</x>
-      <y>260</y>
+      <x>900</x>
+      <y>180</y>
       <w>30</w>
-      <h>100</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>310</y>
-      <w>260</w>
-      <h>50</h>
+      <x>600</x>
+      <y>280</y>
+      <w>640</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;10.0;10.0;240.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0;620.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1210</x>
-      <y>310</y>
+      <y>280</y>
       <w>30</w>
-      <h>50</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>840</x>
-      <y>300</y>
-      <w>400</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1110</x>
-      <y>620</y>
+      <y>610</y>
       <w>210</w>
-      <h>120</h>
+      <h>140</h>
     </coordinates>
-    <panel_attributes>purchase
+    <panel_attributes>transaction
 --
 -date: Date
 -qtySold: int
 -staffID: String
 -invoiceNo: int
 -
-+purchase()
++transaction()
++displayTrans()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1020</x>
-      <y>690</y>
-      <w>110</w>
+      <x>1010</x>
+      <y>680</y>
+      <w>120</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>620</y>
+      <x>510</x>
+      <y>610</y>
       <w>210</w>
-      <h>250</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>inventoryData
 --
 +stock[]: stock
++totalCount: integer
 --
 +inventoryData()
 -readFile()
@@ -207,8 +198,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>690</y>
+      <x>710</x>
+      <y>680</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -221,13 +212,14 @@ m2= 0..*</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1110</x>
-      <y>80</y>
+      <y>0</y>
       <w>210</w>
-      <h>230</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>accountData
 -
 -user[]: user
++totalCount: integer
 -
 +accountData()
 -readFile()
@@ -245,47 +237,47 @@ m2= 0..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1240</x>
-      <y>300</y>
+      <x>1260</x>
+      <y>250</y>
       <w>30</w>
-      <h>60</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>610</x>
-      <y>560</y>
+      <x>600</x>
+      <y>540</y>
       <w>30</w>
-      <h>80</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>560</y>
+      <x>650</x>
+      <y>540</y>
       <w>280</w>
-      <h>80</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>260.0;10.0;260.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
+    <additional_attributes>260.0;10.0;260.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1020</x>
-      <y>150</y>
-      <w>110</w>
+      <x>1010</x>
+      <y>70</y>
+      <w>120</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1= 1
 m2= 1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
   </element>
 </diagram>
