@@ -1,85 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * Name         : stock.h
- * Author       : Stanley
- * Sub Authors  :
- *
- * Created on   : 140217
- *
- * Purpose      : contains includes and declaration of Stock class
- * 
- * Changes      :
- * DATE         USER            DETAIL
- * 140217       Stanley         Original file conception
- */
-
-#pragma once
-#include <list>
+#include <iostream>
+#include <string>
 #include "transaction.h"
+#ifndef STOCK_H
+#define STOCK_H
+using namespace std;
 
-const int LEN = 200;
-
-class Stock
+class stock
 {
- public:
-     Stock();
-     ~Stock();
-     void modifyQty(int);
-     double getTotalSale();
-     void displaySummary();
- private:
-     char itemID [LEN];
-     char itemDesc [LEN];
-     char itemCat [LEN];
-     char itemSubCat [LEN];
-     double buyPrice;
-     double sellPrice;
-     int qty;
-     //int threshold;
-     //char alertMsg [LEN];
-     int transCount;
-     list<Transaction> transHist;
-};
-
-Stock::Stock(){}
-
-Stock::~Stock(){}
-
-void Stock::modifyQty(int amt)
-{
-    if(amt == 0)
-    {
-    	cout << "Transaction cannot have a quantity of 0!" << endl;
-	return;
-    }
-	
-    qty = qty + amt;
-    Transaction transaction(DAY, MONTH, YEAR, "F1234567", amt);
-	
-    transHist.push_front(transaction);
+	private:
+	string itemID;
+	string itemDesc;
+	string itemCategory;
+	string itemSubCat;
+	double amountPerUnit;
+	int qty;
+	int threshold;
+	string alertMessage;
+	//transaction trans;
+	//trans transHistory[50];
+	//get qtySold from transHistory
+	//date,qtysold,staffid,invoice
+	public:
+	string stock();
+	int addQty();
+	int removeQty();
+	double getTotalSale();
+	string displaySummary();
+	//
+	string getID();
+	string getDesc();
+	string getCategory();
+	string getSubCat();
+	double getAmountPerUnit();
+	int getQty();
+	int getThreshold();
+	string getAlertMessage();
+	//
+	void setID(string id);
+	void setDesc(string desc);
+	void setCategory(string categroy);
+	void setSubCat(string subCat);
+	void setAmountPerUnit(double APU);
+	void setQty(int quty);
+	void setThreshold(int tHold);
+	void setAlertMessage(string aMessage); 
 }
 
-double Stock::getTotalSale()
-{
-    //
-}
 
-void Stock::displaySummary()
-{
-    cout << "Item ID           : " << itemID << endl;
-    cout << "Item Category     : " << itemCat << endl;
-    cout << "Item Sub Category : " << itemSubCat << endl;
-    cout << "Item Description  : " << itemDesc << endl;
-    cout << "Quantity          : " << qty << endl;
-    cout << "Buy Price		   : " << buyPrice << endl;
-    cout << "Sell Price		   : " << sellPrice << endl;
 
-    list<Transaction>::iterator i;
-    for (i = transHist.begin(); i != transHist.end(); ++i)
-	i->displayTrans();
-}
+
+#endif
