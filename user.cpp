@@ -46,9 +46,9 @@ user::user ()
 }
 user::user (string SID, string PWD, string EA)
 {
-	staffID = SID;
-	password = PWD:
-	email = EA;
+	strcpy (staffID,SID);
+	strcpy (password,PWD);
+	strcpy (email,EA);
 }
 user::~user ()
 {
@@ -82,14 +82,22 @@ void user::setEmail(string EA)
 }
 void user::login()
 {
-   
+	cout << "User: ";
+	cin  >> SID;
+	cout << endl;
+	cout << "Password: ";
+	cin  >> PWD;
+	cout << endl;
+	
 }
 void user::changePw()
 {
 	
 }
 void user::resetPw()
+{
+	
+}
 bool user::validateLogin ()
 bool user::accLock ()
-
 
