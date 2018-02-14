@@ -281,11 +281,18 @@ bool accountData::validateEmail (const char * staffID, const char * email)
 //Displays list of account ID and email
 void accountData::displayAccounts ()
 {
-	cout << "No.\tStaff ID\tEmail" << endl;
+	cout << "No.\tStaff ID\tEmail\tStatus" << endl;
 	for (int i=0; i<this->count; i++)
 	{
 		cout << i+1  << '\t' << userArray [i].getStaffID ()
-			 << '\t' << userArray [i].getEmail () << endl;
+			 << '\t' << userArray [i].getEmail () << '\t';
+			 
+		if (userArray [i].getLockStatus () == true)
+			cout << "Locked";
+		else
+			cout << "Unlocked";
+			
+		cout << endl;
 	}
 }
 
