@@ -44,7 +44,9 @@ Contributor(s):
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Stock.h</itemPath>
+      <itemPath>date.h</itemPath>
       <itemPath>exampleHeaders.h</itemPath>
+      <itemPath>inventory.h</itemPath>
       <itemPath>transaction.h</itemPath>
       <itemPath>user.h</itemPath>
     </logicalFolder>
@@ -55,6 +57,7 @@ Contributor(s):
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>inventory.cpp</itemPath>
       <itemPath>stock.cpp</itemPath>
       <itemPath>transaction.cpp</itemPath>
       <itemPath>user.cpp</itemPath>
@@ -77,7 +80,13 @@ Contributor(s):
       </compileType>
       <item path="Stock.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="exampleHeaders.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inventory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="inventory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="stock.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -112,7 +121,13 @@ Contributor(s):
       </compileType>
       <item path="Stock.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="date.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="exampleHeaders.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inventory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="inventory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="stock.cpp" ex="false" tool="1" flavor2="0">
       </item>

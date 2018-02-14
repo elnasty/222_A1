@@ -19,7 +19,7 @@
  */
 
 #include "transaction.h"
-
+/*
 Transaction::Transaction(){};
 
 Transaction::Transaction(int d, int m, int y, char* c, int amt)
@@ -40,7 +40,7 @@ void Transaction::displayTrans()
     // to be added
 }
 
-int Transaction::objCount = 0;
+int Transaction::objCount = 0;*/
 
 
 

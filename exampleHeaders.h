@@ -20,13 +20,6 @@
  * 120217       Stanley         Original file conception
  */
 
-#ifndef EXAMPLEHEADERS_H
-#define EXAMPLEHEADERS_H
-
-
-
-#endif /* EXAMPLEHEADERS_H */
-
 // function declarations
 void example1();
 int example2 (int);

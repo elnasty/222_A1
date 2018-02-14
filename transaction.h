@@ -18,13 +18,10 @@
  * 140217       Stanley         Original file conception
  */
 
-#ifndef TRANSACTION_H
-#define TRANSACTION_H
-
-#endif /* TRANSACTION_H */
-
+#pragma once
 #include <iomanip>
 #include <iostream>
+#include "date.h"
 
 const int IDLEN = 8;
 
@@ -35,7 +32,6 @@ class Transaction
      Transaction(int, int, int, char*, int);
      ~Transaction();
      void displayTrans();
-     
  private: 
      struct Date
      {
@@ -49,3 +45,32 @@ class Transaction
      int invoiceNo;
      static int objCount;
 };
+
+Transaction::Transaction(){}
+
+Transaction::Transaction(int d, int m, int y, char* c, int amt)
+{
+    date.day = d;
+    date.month = m;
+    date.year = y;
+    
+    strcpy(staffID, c);
+    qtySold = amt;
+    invoiceNo = ++objCount;
+}
+
+Transaction::~Transaction(){}
+
+void Transaction::displayTrans()
+{
+    cout << qtySold;
+	if (qtySold > 0)
+		cout << " sold by ";
+	else if (qtySold < 0)
+		cout << " bought by";
+	
+	cout << staffID << " on " << setfill('0') << setw(2) 
+	     << date.day << setw(2) << date.month << date.year << endl;
+}
+
+int Transaction::objCount = 0;
