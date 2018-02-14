@@ -11,7 +11,7 @@
  *
  * Created on   : 140217
  *
- * Purpose      : contains definitions of transaction class functions
+ * Purpose      : contains definitions of Transaction class functions
  * 
  * Changes      :
  * DATE         USER            DETAIL

@@ -11,7 +11,7 @@
  *
  * Created on   : 140217
  *
- * Purpose      : contains includes and declaration of transaction class
+ * Purpose      : contains includes and declaration of Transaction class
  * 
  * Changes      :
  * DATE         USER            DETAIL
@@ -26,7 +26,7 @@
 #include <iomanip>
 #include <iostream>
 
-const int staffIDLen = 8;
+const int IDLEN = 8;
 
 class Transaction
 {
@@ -45,7 +45,7 @@ class Transaction
      };
      Date date;
      int qtySold;
-     char staffID [staffIDLen];
+     char staffID [IDLEN];
      int invoiceNo;
      static int objCount;
 };
