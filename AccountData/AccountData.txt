@@ -1,0 +1,3 @@
+user1	1234567	abc@gmail.com	Locked
+user2	1234567	lala@gmail.com	Unlocked
+user3	alah	five@yahoo.com.sg	Locked
