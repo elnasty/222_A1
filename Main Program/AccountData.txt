@@ -1,0 +1,6 @@
+A101172 123456	abc@gmail.com	Locked
+O123456	123456	efg@yahoo.com Unlocked
+M555555 123456	xyz@gmail.com	Unlocked
+M123456	123456	lalaland@gmail.com Unlocked
+O102938	123456	hello@hotmail.com	Unlocked
+A111111	123456 	abalast@gmail.com	Unlocked
