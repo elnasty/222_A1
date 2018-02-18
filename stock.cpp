@@ -17,13 +17,20 @@ stock::stock()
 	alertMessage="";
 	
 }
+//not sure if correct or not
 int stock::addQty(int quty)
 {
 	int amount
+	cout<<"Input Amount to add: "<<endl;
+	cin>>amount;
+	stock.getQty()+amount;
 }
 int stock::removeQty(int quty)
 {
 	int amount
+	cout<<"Input Amount to remove: "<<endl;
+	cin>>amount;
+	stock.getQty()-amount;
 }
 double stock::getTotalSale()
 {
@@ -33,6 +40,7 @@ double stock::getTotalSale()
 	totalSale = (trans.getQtySold() * amountPerUnit);
 	return totalSale;
 }
+
 //string stock::displaySummary(string itemID, string itemDesc, string itemCategory, string itemSubCat, double amountPerUnit, int qty, double getTotalSale)
 string stock::displaySummary()
 {	
