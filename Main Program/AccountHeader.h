@@ -48,7 +48,7 @@ class User
 				void resetPw();
 				bool validatePw(const char*);
 				
-	protected:	
+	private:	
 				char* staffID;
 				char* password;
 				char* email;
