@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Inventory/date.o \
+	${OBJECTDIR}/Inventory/inventory.o \
 	${OBJECTDIR}/Inventory/stock.o \
 	${OBJECTDIR}/Inventory/transaction.o \
 	${OBJECTDIR}/inventory.o \
@@ -72,6 +73,11 @@ ${OBJECTDIR}/Inventory/date.o: Inventory/date.cpp
 	${MKDIR} -p ${OBJECTDIR}/Inventory
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/date.o Inventory/date.cpp
+
+${OBJECTDIR}/Inventory/inventory.o: Inventory/inventory.cpp
+	${MKDIR} -p ${OBJECTDIR}/Inventory
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/inventory.o Inventory/inventory.cpp
 
 ${OBJECTDIR}/Inventory/stock.o: Inventory/stock.cpp
 	${MKDIR} -p ${OBJECTDIR}/Inventory

@@ -60,6 +60,7 @@ Contributor(s):
                    projectFiles="true">
       <itemPath>Inventory/date.cpp</itemPath>
       <itemPath>inventory.cpp</itemPath>
+      <itemPath>Inventory/inventory.cpp</itemPath>
       <itemPath>stock.cpp</itemPath>
       <itemPath>Inventory/stock.cpp</itemPath>
       <itemPath>transaction.cpp</itemPath>
@@ -88,6 +89,8 @@ Contributor(s):
       <compileType>
       </compileType>
       <item path="Inventory/date.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/inventory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Inventory/itoa.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -137,6 +140,8 @@ Contributor(s):
         </asmTool>
       </compileType>
       <item path="Inventory/date.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/inventory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Inventory/itoa.h" ex="false" tool="3" flavor2="0">
       </item>
