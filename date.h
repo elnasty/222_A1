@@ -11,8 +11,8 @@
  *
  * Created on   : 120217
  *
- * Purpose      : contains the global variables DAY MONTH YEAR and a function to
- *                initialize those variables
+ * Purpose      : contains the global variables DAY MONTH YEAR, a function to
+ *                initialize those variables and the struct Date;
  * 
  * Changes      :
  * DATE         USER            DETAIL
@@ -23,7 +23,14 @@
 #include <ctime>
 using namespace std;
 
-int DAY, MONTH, YEAR;
+static int DAY, MONTH, YEAR;
+
+struct Date
+{
+    int day;
+    int month;
+    int year;
+};
 
 void updateDate()
 {

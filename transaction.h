@@ -32,13 +32,19 @@ class Transaction
      Transaction(int, int, int, char*, int);
      ~Transaction();
      void displayTrans();
+     
+     // mutator accessor
+     void setQuantitySold(int);
+     int getQuantitySold();
+     void setStaffID(char*);
+     char * getStaffID();
+     void setInvoiceNo(int);
+     int getInvoiceNo();
+     void setDate(int, int, int);
+     Date getDate ();
+     static int getCount();
+
  private: 
-     struct Date
-     {
-         int day;
-         int month;
-         int year;
-     };
      Date date;
      int qtySold;
      char staffID [IDLEN];
@@ -54,7 +60,7 @@ Transaction::Transaction(int d, int m, int y, char* c, int amt)
     date.month = m;
     date.year = y;
     
-    strcpy(staffID, c);
+    strncpy(staffID, c, IDLEN);
     qtySold = amt;
     invoiceNo = ++objCount;
 }
@@ -64,13 +70,56 @@ Transaction::~Transaction(){}
 void Transaction::displayTrans()
 {
     cout << qtySold;
-	if (qtySold > 0)
-		cout << " sold by ";
-	else if (qtySold < 0)
-		cout << " bought by";
+    if (qtySold > 0)
+	cout << " sold by ";
+    else if (qtySold < 0)
+	cout << " bought by";
 	
-	cout << staffID << " on " << setfill('0') << setw(2) 
-	     << date.day << setw(2) << date.month << date.year << endl;
+    cout << staffID << " on " << setfill('0') << setw(2) 
+	 << date.day << setw(2) << date.month << date.year << endl;
 }
 
+// mutators
+void Transaction::setStaffID(char* SID)
+{
+    strncpy(staffID, SID, IDLEN);
+}
+void Transaction::setInvoiceNo(int newInvoice)
+{
+    invoiceNo = newInvoice;
+}
+void Transaction::setQuantitySold(int newQuantity)
+{
+    qtySold = newQuantity;
+}
+void Transaction::setDate(int d, int m, int y)
+{
+    date.day = d;
+    date.month = m;
+    date.year = y;
+}
+
+// accessors
+int Transaction::getInvoiceNo() const
+{
+    return invoiceNo;
+}
+int Transaction::getQuantitySold() const
+{
+    return qtySold;
+}
+char* Transaction::getStaffID() const
+{
+    return staffID;
+}
+Date Transaction::getDate()
+{
+    return date;
+}
+
+// static
 int Transaction::objCount = 0;
+static int Transaction::getObjCount()
+{
+    return objCount;
+}
