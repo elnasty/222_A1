@@ -28,7 +28,7 @@ void Stock::modifyQty(int amt, char* staffID)
 	return;
     }
 	
-    qty = qty + amt;
+    qty = qty - amt;
     Transaction* pt = new Transaction(GLOBALDATE, staffID, amt);
 	
     transHist.push_front(*pt);

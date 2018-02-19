@@ -39,10 +39,10 @@ void Operator::addStockQty ()
 	list<Stock>::iterator i;
     for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
     {
-    	if (strcmp(itemID, i->getID()))
-		{
-			i->modifyQty(i->getQty() + qty, staffID);
-		}
+    	if (!strcmp(itemID, i->getID()))
+	{
+            i->modifyQty(qty, staffID);
+	}
     }
 }
 

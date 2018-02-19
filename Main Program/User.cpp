@@ -2,7 +2,6 @@
 
 AccountData database ("AccountData.dat");
 Inventory inventory ("items.txt", "items.dat");
- 
 
 //Constructors
 User::User ()

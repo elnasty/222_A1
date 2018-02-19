@@ -31,7 +31,10 @@ Inventory::Inventory(const char* txtFileName, const char* bFileName)
 	readFile (bFileName);
 }
 
-Inventory::~Inventory(){}
+Inventory::~Inventory()
+{
+    writeFile("items2.dat");
+}
 
 void Inventory::viewSummary()
 {
@@ -71,7 +74,6 @@ void Inventory::encryptFile (const char* tFName, const char* bFName)
         pc = strtok (buffer,":");
         while (pc != NULL)
         {
-            cout << pc << endl;
             writeString(bFile, pc);
             pc = strtok (NULL, ":");
         }
@@ -189,7 +191,6 @@ void Inventory::readFile (const char* bFName)
     
     stocks.pop_back();
     totalStock = stocks.size();
-    cout << "number of stocks = " << totalStock << endl;
     delete [] buffer;
     bFile.close();
 }

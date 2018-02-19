@@ -7,6 +7,7 @@ Date GLOBALDATE;
 int main ()
 {
 	srand (time (NULL));
+        updateDate(GLOBALDATE);
 	int choice;
 	char whichUser;
 	User userLogin;
