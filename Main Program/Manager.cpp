@@ -164,7 +164,50 @@ void Manager :: orderStock()
 
 void Manager :: stockAlert()
 {
-    
+    int threshold;
+	char alert[MAXLEN];
+	list<Stock>::iterator i;
+	char choice;
+	
+	do
+	{
+		cout << "--------------------------------------\n";
+		cout << "Stock Alert Menu\n";
+		cout << "--------------------------------------\n";
+		cout << "a) Set Threshold\n";
+		cout << "b) Set Alert Message\n";
+		cout << "c) Back\n";
+		cout << "--------------------------------------\n";
+		cout << "Choice: ";
+		cin >> choice;
+		cin.clear ();
+		cin.ignore (MAXLEN, '\n');
+		
+		switch (choice)
+		{
+		
+			case 'a':	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+						{
+							i -> setThreshold (threshold);
+						}
+			break;
+			
+			case 'b': 	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+						{
+							i -> setAlertMessage (alert);
+						}
+			break;
+			
+			case 'c':
+			break;
+			
+			default: cout << "Invalid choice! " << endl;
+		}
+		cout << endl;
+	
+	} while (choice != 'c');
+	
+	
 }
 
 void Manager :: displayManagerMenu()

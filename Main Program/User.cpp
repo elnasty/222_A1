@@ -132,12 +132,14 @@ const char* User::login()
 		{
 			cout << "Login Failure" << endl;
 			database.addFailCount(staffID);
+			return "Fail";
 		}
 	}
 	else
 	{
 		cout << "Account with ID \'" << staffID 
 			 << "\' is locked" << endl;
+		return "Fail";
 	}
 }
 
