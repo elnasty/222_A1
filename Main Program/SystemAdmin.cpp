@@ -47,9 +47,9 @@ void systemAdmin :: accRecovery()
 		cout << "--------------------------------------\n";
 		cout << "Account Recovery\n";
 		cout << "--------------------------------------\n";
-	    cout << "1) Unlock Account\n";
-	    cout << "2) Reset Password\n";
-	    cout << "3) Display Accounts\n";
+	    	cout << "1) Unlock Account\n";
+	   	cout << "2) Reset Password\n";
+	    	cout << "3) Display Accounts\n";
 		cout << "4) Back\n";
 		cout << "--------------------------------------\n";
 		cout << "Choice: ";

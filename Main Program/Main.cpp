@@ -1,4 +1,4 @@
-#include "SystemAdmin.cpp"
+#include "Operator.cpp"
 
 void displayLoginMenu ();
 
@@ -60,11 +60,33 @@ int main ()
 					}
 					else if (whichUser == 'O')
 					{
-						cout << "Display Operator Menu" << endl;
+						int choice2;
+						Operator opr;
+						
+						do
+						{
+							opr.displayOperatorMenu ();
+							cout << "Choice: ";
+							cin >> choice2 ;
+							cin.clear();
+							cin.ignore(MAXLEN, '\n');
+							cout << endl;
+						} while (choice2 != 3);
 					}
 					else if (whichUser == 'M')
 					{
-						cout << "Display Manager Menu" << endl;
+						int choice3;
+						Manager manager;
+						do
+						{
+							manager.displayManagerMenu ();
+							cout << "Choice: ";
+							cin >> choice3 ;
+							cin.clear();
+							cin.ignore(MAXLEN, '\n');
+							cout << endl;
+							
+						} while (choice3 != 6);
 					} 
 					
 			break;
