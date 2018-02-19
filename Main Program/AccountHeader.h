@@ -8,6 +8,11 @@
 #include <cctype>
 #include <conio.h>
 
+#include "inventory.cpp"
+#include "stock.cpp"
+#include "transaction.cpp"
+#include "date.cpp"
+
 using namespace std;
 
 #define MAXUSER 100

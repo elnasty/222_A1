@@ -2,6 +2,8 @@
 
 void displayLoginMenu ();
 
+Date GLOBALDATE;
+
 int main ()
 {
 	srand (time (NULL));
@@ -70,7 +72,27 @@ int main ()
 							cin >> choice2 ;
 							cin.clear();
 							cin.ignore(MAXLEN, '\n');
+							
+							inventory.viewSummary();
+							
+							switch (choice2)
+							{
+								case 1: opr.addStockQty ();
+								break;
+								
+								case 2: opr.rmStockQty ();
+								break;
+								
+								case 3: 
+								break;
+								
+							
+								default: cout << "Invalid choice! " << endl;
+							}
+							
 							cout << endl;
+							inventory.viewSummary();
+							
 						} while (choice2 != 3);
 					}
 					else if (whichUser == 'M')

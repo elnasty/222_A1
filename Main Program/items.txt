@@ -1,0 +1,4 @@
+23:Nokia Phone:Electronics:Phone:200.5:500.5:100:20:Need Nokia Phones:0
+27:Apple Phone:Electronics:Phone:100.5:800.5:100:20:Need Apple Phones:0
+30:Banana:Produce:Fruit:0.4:1.5:1000:50:Need Bananas:0
+50:Apple:Produce:Fruit:0.2:0.8:2000:200:Need Apple (the fruit):0

@@ -33,9 +33,9 @@ void systemAdmin :: createAcc()
 void systemAdmin :: rmAcc()
 {
 	if (database.removeAccount ())
-		cout << "Remove Account Successful" << endl;
+		cout << "Create Account Successful" << endl;
 	else
-		cout << "Remove Account Failure" << endl;
+		cout << "Create Account Failure" << endl;
 }
 
 void systemAdmin :: accRecovery()

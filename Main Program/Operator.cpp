@@ -8,11 +8,12 @@ class Operator
 		void displayOperatorMenu();
 		void addStockQty ();
 		void rmStockQty ();
+		
 };
 
 Operator::Operator ()
 {
-
+	
 }
 
 Operator::~Operator ()
@@ -22,12 +23,52 @@ Operator::~Operator ()
 
 void Operator::addStockQty ()
 {
-
+	char itemID [LEN];
+	char staffID [LEN];
+	int qty;
+	
+	cout << "Please enter Item ID: ";
+	cin >> itemID;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	cout << "Please enter Qty: ";
+	cin >> qty;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	list<Stock>::iterator i;
+    for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+    {
+    	if (strcmp(itemID, i->getID()))
+		{
+			i->modifyQty(i->getQty() + qty, staffID);
+		}
+    }
 }
 
 void Operator::rmStockQty ()
 {
-
+	char itemID [LEN];
+	char staffID [LEN];
+	int qty;
+	
+	cout << "Please enter Item ID: ";
+	cin >> itemID;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	cout << "Please enter Qty: ";
+	cin >> qty;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	list<Stock>::iterator i;
+    for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+    {
+    	if (strcmp(itemID, i->getID()))
+		{
+			i->modifyQty(i->getQty() - qty, staffID);
+		}
+    }
 }
 
 void Operator :: displayOperatorMenu()
