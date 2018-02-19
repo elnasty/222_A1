@@ -33,6 +33,8 @@ class Inventory
     void encryptFile(const char*, const char*);
     void readFile(const char*);
     void writeFile(const char*);
+    void searchStock(const int);
+    void searchStock(const char*);
  private:
     int totalStock;
     list<Stock> stocks;

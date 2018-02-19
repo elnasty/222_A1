@@ -243,6 +243,26 @@ void Inventory::writeFile (const char* bFName)
     bFile.close ();
 }
 
+void Inventory::searchStock(const int ID)
+{
+    list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+        if((i->getID()) == ID)
+            i->displaySummary();
+    }
+}
+
+void Inventory::searchStock(const char* desc)
+{
+    list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+        if(!strcmp(i->getDesc(), desc))
+            i->displaySummary();
+    }
+}
+
 void writeString(fstream& file, const string& str)
 {
   // get the length of the string data
