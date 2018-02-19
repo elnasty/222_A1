@@ -19,8 +19,8 @@
  */
 
 #include "transaction.h"
-/*
-Transaction::Transaction(){};
+
+Transaction::Transaction(){}
 
 Transaction::Transaction(int d, int m, int y, char* c, int amt)
 {
@@ -28,20 +28,66 @@ Transaction::Transaction(int d, int m, int y, char* c, int amt)
     date.month = m;
     date.year = y;
     
-    strcpy(staffID, c);
+    strncpy(staffID, c, IDLEN);
     qtySold = amt;
     invoiceNo = ++objCount;
 }
 
-Transaction::~Transaction(){};
+Transaction::~Transaction(){}
 
 void Transaction::displayTrans()
 {
-    // to be added
+    cout << qtySold;
+    if (qtySold > 0)
+	cout << " sold by ";
+    else if (qtySold < 0)
+	cout << " bought by";
+	
+    cout << staffID << " on " << setfill('0') << setw(2) 
+	 << date.day << setw(2) << date.month << date.year << endl;
 }
 
-int Transaction::objCount = 0;*/
+// mutators
+void Transaction::setStaffID(char* SID)
+{
+    strncpy(staffID, SID, IDLEN);
+}
+void Transaction::setInvoiceNo(int newInvoice)
+{
+    invoiceNo = newInvoice;
+}
+void Transaction::setQuantitySold(int newQuantity)
+{
+    qtySold = newQuantity;
+}
+void Transaction::setDate(int d, int m, int y)
+{
+    date.day = d;
+    date.month = m;
+    date.year = y;
+}
 
+// accessors
+int Transaction::getInvoiceNo() const
+{
+    return invoiceNo;
+}
+int Transaction::getQuantitySold() const
+{
+    return qtySold;
+}
+char* Transaction::getStaffID() const
+{
+    return staffID;
+}
+Date Transaction::getDate()
+{
+    return date;
+}
 
-
-
+// static
+int Transaction::objCount = 0;
+static int Transaction::getObjCount()
+{
+    return objCount;
+}

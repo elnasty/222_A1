@@ -1,117 +1,122 @@
-#include <iostream>
-#include <string>
-#include <stdio.h>
-#include <iomanip>
 #include "stock.h"
-using namespace std;
 
-stock::stock()
+Stock::Stock(){}
+
+Stock::~Stock(){}
+
+void Stock::modifyQty(int amt, char* staffID)
 {
-	itemID="";
-	itemDesc="";
-	itemCategory="";
-	itemSubCat="";
-	amountPerUnit=0.0;
-	qty=0;
-	threshold=0;
-	alertMessage="";
+    if(amt == 0)
+    {
+        cout << "Transaction cannot have a quantity of 0!" << endl;
+	return;
+    }
 	
-}
-//not sure if correct or not
-int stock::addQty(int quty)
-{
-	int amount
-	cout<<"Input Amount to add: "<<endl;
-	cin>>amount;
-	stock.getQty()+amount;
-}
-int stock::removeQty(int quty)
-{
-	int amount
-	cout<<"Input Amount to remove: "<<endl;
-	cin>>amount;
-	stock.getQty()-amount;
-}
-double stock::getTotalSale()
-{
-	double totalSale;
-
-//get qtySold from transHistory
-	totalSale = (trans.getQtySold() * amountPerUnit);
-	return totalSale;
+    qty = qty + amt;
+    Transaction transaction(DAY, MONTH, YEAR, staffID, amt);
+	
+    transHist.push_front(transaction);
 }
 
-//string stock::displaySummary(string itemID, string itemDesc, string itemCategory, string itemSubCat, double amountPerUnit, int qty, double getTotalSale)
-string stock::displaySummary()
-{	
-	//alignment needs working on....
-	//output will change depending on first entry
-	cout<<"ID"<<setw(10)<<"Description"<<setw(10)<<"Category"<<setw(10)<<"SubCat"<<setw(10)<<"Amount PerUnit"<<setw(10)<<"Qty"<<setw(10)<<"Total Sales"<<endl;
-	cout<<itemID<<setw(10)<<itemDesc<<setw(10)<<itemCategory<<setw(10)<<itemSubCat<<setw(10)<<amountPerUnit<<setw(10)<<qty<<setw(10)<<getTotalSale<<endl;
-}
-//get
-string stock::getID()
+double Stock::getTotalSale()
 {
-	return id;
+    //
 }
-string stock::getDesc()
+
+void Stock::displaySummary()
 {
-	return desc;
+    cout << "Item ID           : " << itemID << endl;
+    cout << "Item Category     : " << itemCat << endl;
+    cout << "Item Sub Category : " << itemSubCat << endl;
+    cout << "Item Description  : " << itemDesc << endl;
+    cout << "Quantity          : " << qty << endl;
+    cout << "Buy Price		   : " << buyPrice << endl;
+    cout << "Sell Price		   : " << sellPrice << endl;
+	
+    list<Transaction>::iterator i;
+    for (i = transHist.begin(); i != transHist.end(); ++i)
+    	i->displayTrans();
 }
-string stock::getCategory()
+
+// accessors
+char* Stock::getID() const
 {
-	return category;
+    return itemID;
 }
-string stock::getSubCat()
+char* Stock::getDesc() const
 {
-	return subCat;
+    return itemDesc;
 }
-double stock::getAmountPerUnit()
+char* Stock::getCategory() const
 {
-	return APU;
+    return itemCat;
 }
-int stock::getQty()
+char* Stock::getSubCat() const
 {
-	return quty;
+    return itemSubCat;
 }
-int stock::getThreshold()
+double Stock::getBuyPrice() const
 {
-	return tHold;
+    return buyPrice;
 }
-string stock::getAlertMessage()
+double Stock::getSellPrice() const
 {
-	return aMessage;
+    return sellPrice;
 }
-//set
-void stock::setID(string id)
+int Stock::getQty() const
 {
-	itemID=id;
+    return qty;
 }
-void stock::setDesc(string desc)
+int Stock::getThreshold() const
 {
-	itemDesc=desc;
+    return threshold;
 }
-void stock::setCategory(string categroy)
+char* Stock::getAlertMessage() const
 {
-	itemCategory=category;
+    return alertMsg;
 }
-void stock::setSubCat(string subCat)
+
+// mutators
+void Stock::setID(char* id)
 {
-	itemSubCat=subCat;
+    strncpy(itemID, id, LEN);
 }
-void stock::setAmountPerUnit(double APU)
+void Stock::setDesc(char* desc)
 {
-	amountPerUnit=APU;
+    strncpy(itemDesc, desc, LEN);
 }
-void stock::setQty(int quty)
+void Stock::setCategory(char* cat)
 {
-	qty=quty;
+    strncpy(itemCat, cat, LEN);
 }
-void stock::setThreshold(int tHold)
+void Stock::setSubCat(char* subCat)
 {
-	threshold=tHold;
+    strncpy(itemSubCat, subCat, LEN);
 }
-void stock::setAlertMessage(string aMessage)
+void Stock::setBuyPrice(double bP)
 {
-	alertMessage=aMessage;
+    buyPrice = bP;
+}
+void Stock::setSellPrice(double sP)
+{
+    sellPrice = sP;
+}
+void Stock::setQty(int q)
+{
+    qty = q;
+}
+void Stock::setThreshold(int tHold)
+{
+    threshold=tHold;
+}
+void Stock::setAlertMessage(char* aM)
+{
+    strncpy(alertMsg, aM, LEN);
+}
+
+// static
+int Stock::transCount = 0;
+static int Stock::getTransCount()
+{
+    return transCount;
 }
