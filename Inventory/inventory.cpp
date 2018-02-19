@@ -135,6 +135,41 @@ void Inventory::readFile (const char* bFName)
         num = atoi (buffer);
         ps->setTransCount(num);
         
+        if(ps->getTransCount() > 0)
+        {
+            int amt, inv;
+            Date date;
+            for(int i = 0; i < ps->getTransCount(); ++i)
+            {
+                Transaction * pt;               
+                
+                str = readString(bFile);
+                strcpy(buffer,str.c_str());
+                date.day = atoi (buffer);
+                
+                str = readString(bFile);
+                strcpy(buffer,str.c_str());
+                date.month = atoi (buffer);
+                
+                str = readString(bFile);
+                strcpy(buffer,str.c_str());
+                date.year = atoi (buffer);
+                
+                str = readString(bFile);
+                strcpy(buffer,str.c_str());
+                amt = atoi (buffer);
+                
+                str = readString(bFile);
+                strcpy(buffer,str.c_str());
+                
+                str = readString(bFile);
+                strcpy(buffer,str.c_str());
+                inv = atoi (buffer);
+                
+                pt = new Transaction(date, buffer, amt, inv);
+                ps->transHist.push_back(*pt);
+            }
+        }
         stocks.push_back(*ps);
     }
     
@@ -180,6 +215,29 @@ void Inventory::writeFile (const char* bFName)
         
         itoa(i->getTransCount(), buffer, 10);
         writeString(bFile, buffer);
+        
+        if(i->getTransCount() > 0)
+        {
+            list<Transaction>::iterator it;
+            for (it = i->transHist.begin(); it != i->transHist.end(); ++it)
+            {
+                Date date = it->getDate();
+                
+                itoa(date.day, buffer, 10);
+                writeString(bFile, buffer);
+                itoa(date.month, buffer, 10);
+                writeString(bFile, buffer);
+                itoa(date.year, buffer, 10);
+                writeString(bFile, buffer);
+                itoa(it->getQuantitySold(), buffer, 10);
+                writeString(bFile, buffer);
+                
+                 writeString(bFile, it->getStaffID());
+                
+                itoa(it->getInvoiceNo(), buffer, 10);
+                writeString(bFile, buffer);
+            }
+        }
     }
     
     bFile.close ();

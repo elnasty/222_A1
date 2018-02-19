@@ -29,9 +29,9 @@ void Stock::modifyQty(int amt, char* staffID)
     }
 	
     qty = qty + amt;
-    Transaction transaction(GLOBALDATE, staffID, amt);
+    Transaction* pt = new Transaction(GLOBALDATE, staffID, amt);
 	
-    transHist.push_front(transaction);
+    transHist.push_front(*pt);
     transCount = transHist.size();
 }
 
@@ -51,6 +51,8 @@ void Stock::displaySummary()
     cout << "Sell Price        : " << sellPrice << endl;
 	
     list<Transaction>::iterator i;
+    if (transHist.size() == 0)
+        cout << "No transactions to display" << endl;
     for (i = transHist.begin(); i != transHist.end(); ++i)
     	i->displayTrans();
     

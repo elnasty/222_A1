@@ -30,10 +30,13 @@ class Transaction
      
      // mutator accessor
      void setQuantitySold(int);
+     void setQuantityBought(int);
      void setStaffID(char*);
      void setInvoiceNo(int);
      void setDate(int, int, int);
+     
      int getQuantitySold() const;
+     int getQuantityBought() const;
      const char* getStaffID() const;
      int getInvoiceNo() const;
      Date getDate () const;
@@ -42,6 +45,7 @@ class Transaction
  private: 
      Date date;
      int qtySold;
+     int qtyBought;
      char staffID [IDLEN];
      int invoiceNo;
      static int objCount;

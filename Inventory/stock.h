@@ -33,13 +33,13 @@ class Stock
     int threshold;
     char alertMsg [LEN];
     int transCount;
-    list<Transaction> transHist;
  public:
     Stock();
     ~Stock();
     void modifyQty(int, char*);
     double getTotalSale();
     void displaySummary();
+    list<Transaction> transHist;
     
     // accessors
     const char* getID() const;

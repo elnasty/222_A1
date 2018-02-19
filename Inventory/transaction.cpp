@@ -70,6 +70,10 @@ void Transaction::setQuantitySold(int newQuantity)
 {
     qtySold = newQuantity;
 }
+void Transaction::setQuantityBought(int newQuantity)
+{
+    qtyBought = newQuantity;
+}
 void Transaction::setDate(int d, int m, int y)
 {
     date.day = d;
@@ -86,6 +90,10 @@ int Transaction::getQuantitySold() const
 {
     return qtySold;
 }
+int Transaction::getQuantityBought() const
+{
+    return qtyBought;
+}
 const char* Transaction::getStaffID() const
 {
     return staffID;
@@ -101,3 +109,4 @@ int Transaction::getObjCount()
 {
     return objCount;
 }
+
