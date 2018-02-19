@@ -31,6 +31,8 @@ struct Date
 extern Date GLOBALDATE;
 void updateDate(Date&);
 void displayDate(Date);
+void reverse(char str[], int length);
+char* itoa(int num, char* str, int base);
 
 #endif
 

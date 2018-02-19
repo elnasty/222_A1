@@ -47,6 +47,7 @@ Contributor(s):
       <itemPath>date.h</itemPath>
       <itemPath>exampleHeaders.h</itemPath>
       <itemPath>inventory.h</itemPath>
+      <itemPath>Inventory/itoa.h</itemPath>
       <itemPath>transaction.h</itemPath>
       <itemPath>user.h</itemPath>
     </logicalFolder>
@@ -70,6 +71,11 @@ Contributor(s):
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -82,6 +88,8 @@ Contributor(s):
       <compileType>
       </compileType>
       <item path="Inventory/date.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/itoa.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Inventory/stock.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -129,6 +137,8 @@ Contributor(s):
         </asmTool>
       </compileType>
       <item path="Inventory/date.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/itoa.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Inventory/stock.cpp" ex="false" tool="1" flavor2="0">
       </item>

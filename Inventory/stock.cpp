@@ -53,6 +53,8 @@ void Stock::displaySummary()
     list<Transaction>::iterator i;
     for (i = transHist.begin(); i != transHist.end(); ++i)
     	i->displayTrans();
+    
+    cout << endl << endl;
 }
 
 // accessors

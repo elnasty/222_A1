@@ -15,6 +15,7 @@
 
 #pragma once
 #include <fstream>
+#include <sstream>
 #include "stock.h"
 
 void writeString(fstream&, const string&);
@@ -31,10 +32,10 @@ class Inventory
     void viewSummary();
     void encryptFile(const char*, const char*);
     void readFile(const char*);
+    void writeFile(const char*);
  private:
     int totalStock;
     list<Stock> stocks;
-    void writeFile();
     //void encryptFile(const char*, const char*);
 };
 
@@ -73,12 +74,18 @@ void Inventory::encryptFile (const char* tFName, const char* bFName)
 
     char buffer [LEN];
     //tFile >> noskipws;
-    
+    int i = 0;
     //Reach each field form txt file and write to binary, ignoring ':'
     while (tFile.getline(buffer, LEN))
     {
-        cout << buffer << endl;
-        writeString(bFile, buffer);
+        char * pc;
+        pc = strtok (buffer,":");
+        while (pc != NULL)
+        {
+            cout << pc << endl;
+            writeString(bFile, pc);
+            pc = strtok (NULL, ":");
+        }
     }
     
     tFile.close ();
@@ -87,6 +94,7 @@ void Inventory::encryptFile (const char* tFName, const char* bFName)
 
 void Inventory::readFile (const char* bFName)
 {
+    stocks.clear();
     fstream bFile;
     bFile.open (bFName, ios::in | ios::binary);
     if (!bFile)	
@@ -100,55 +108,107 @@ void Inventory::readFile (const char* bFName)
     double d;
     int num;
     char * buffer = new char [LEN];
+    int i = 0;
     
     while(!bFile.eof())
     {
         Stock * ps;
-		
-        readString(bFile);
-        strcpy(buffer,str.c_str());
         ps = new Stock;
-        
+		
+        str = readString(bFile);      
         strcpy(buffer,str.c_str());
         ps->setID(buffer);
         
-        readString(bFile);
+        str = readString(bFile);
         strcpy(buffer,str.c_str());
         ps->setDesc(buffer);
         
-        readString(bFile);
+        str = readString(bFile);
         strcpy(buffer,str.c_str());
         ps->setCat(buffer);
         
-        readString(bFile);
+        str = readString(bFile);
         strcpy(buffer,str.c_str());
         ps->setSubCat(buffer);
         
-        bFile.read(reinterpret_cast<char *>(&d), sizeof(d));
+        str = readString(bFile);
+        strcpy(buffer,str.c_str());
+        d = atof (buffer);
         ps->setBuyPrice(d);
         
-        bFile.read(reinterpret_cast<char *>(&d), sizeof(d));
+        str = readString(bFile);
+        strcpy(buffer,str.c_str());
+        d = atof (buffer);
         ps->setSellPrice(d);
         
-        bFile.read(reinterpret_cast<char *>(&num), sizeof(num));
+        str = readString(bFile);
+        strcpy(buffer,str.c_str());
+        num = atoi (buffer);
         ps->setQty(num);
         
-        bFile.read(reinterpret_cast<char *>(&num), sizeof(num));
+        str = readString(bFile);
+        strcpy(buffer,str.c_str());
+        num = atoi (buffer);
         ps->setThreshold(num);
         
-        readString(bFile);
+        str = readString(bFile);
         strcpy(buffer,str.c_str());
         ps->setAlertMessage(buffer);
         
-        bFile.read(reinterpret_cast<char *>(&num), sizeof(num));
+        str = readString(bFile);
+        strcpy(buffer,str.c_str());
+        num = atoi (buffer);
         ps->setTransCount(num);
         
         stocks.push_back(*ps);
-        ps->displaySummary();
     }
     
+    stocks.pop_back();
     totalStock = stocks.size();
+    cout << "number of stocks = " << totalStock << endl;
+    delete [] buffer;
     bFile.close();
+}
+
+void Inventory::writeFile (const char* bFName)
+{
+    fstream bFile;
+    bFile.open (bFName, ios::out | ios::binary);
+    if (!bFile)
+    {
+        cout << "Failed to open " << bFName << " for writing!" << endl;
+        bFile.close ();
+        exit (-1);
+    }
+    
+    string str;
+    stringstream convert;
+    char buffer[LEN];
+    list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+    	writeString(bFile, i->getID());
+        writeString(bFile, i->getDesc());
+        writeString(bFile, i->getCat());
+        writeString(bFile, i->getSubCat());
+        
+        sprintf(buffer, "%f", i->getBuyPrice());
+        writeString(bFile, buffer);
+        sprintf(buffer, "%f", i->getSellPrice());
+        writeString(bFile, buffer);
+        
+        itoa(i->getQty(), buffer, 10);
+        writeString(bFile, buffer);
+        itoa(i->getThreshold(), buffer, 10);
+        writeString(bFile, buffer);
+        
+        writeString(bFile, i->getAlertMessage());
+        
+        itoa(i->getTransCount(), buffer, 10);
+        writeString(bFile, buffer);
+    }
+    
+    bFile.close ();
 }
 
 void writeString(fstream& file, const string& str)
