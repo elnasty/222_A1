@@ -98,7 +98,7 @@ bool User::isEmpty ()
 			(strcmp (getEmail(), "") == 0));
 }
 
-char User::login()
+const char* User::login()
 {
 	cout << "Account ID: " ;
 	cin >> staffID;
@@ -126,7 +126,7 @@ char User::login()
 		if (database.validateUser (staffID, password))
 		{
 			cout << "Login Success" << endl;
-			return staffID[0];
+			return staffID;
 		}
 		else
 		{

@@ -48,7 +48,7 @@ class User
 				bool isEmpty ();
 				
 				//Other key methods
-				char login();
+				const char* login();
 				void changePw();
 				void resetPw();
 				bool validatePw(const char*);

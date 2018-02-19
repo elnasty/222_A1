@@ -4,16 +4,26 @@ class Operator
 {
 	public: 
 		Operator();
+		Operator(const char*);
 		~Operator();
 		void displayOperatorMenu();
 		void addStockQty ();
 		void rmStockQty ();
+		
+	private:
+		char* staffID;
 		
 };
 
 Operator::Operator ()
 {
 	
+}
+
+Operator::Operator (const char* ID)
+{
+	staffID = new char [MAXLEN];
+	strcpy (staffID, ID);
 }
 
 Operator::~Operator ()
@@ -24,7 +34,6 @@ Operator::~Operator ()
 void Operator::addStockQty ()
 {
 	char itemID [LEN];
-	char staffID [LEN];
 	int qty;
 	
 	cout << "Please enter Item ID: ";
@@ -39,10 +48,10 @@ void Operator::addStockQty ()
 	list<Stock>::iterator i;
     for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
     {
-    	if (!strcmp(itemID, i->getID()))
-	{
-            i->modifyQty(qty, staffID);
-	}
+    	if (strcmp(itemID, i->getID()) == 0)
+		{
+	    	i->modifyQty(-(qty), staffID);
+		}
     }
 }
 
@@ -64,9 +73,9 @@ void Operator::rmStockQty ()
 	list<Stock>::iterator i;
     for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
     {
-    	if (strcmp(itemID, i->getID()))
+    	if (strcmp(itemID, i->getID()) == 0)
 		{
-			i->modifyQty(i->getQty() - qty, staffID);
+			i->modifyQty(qty, staffID);
 		}
     }
 }

@@ -7,9 +7,10 @@ Date GLOBALDATE;
 int main ()
 {
 	srand (time (NULL));
-        updateDate(GLOBALDATE);
+    updateDate(GLOBALDATE);
 	int choice;
 	char whichUser;
+	char userID [MAXLEN];
 	User userLogin;
 	
 	do
@@ -23,7 +24,8 @@ int main ()
 		cout << endl;
 		switch (choice)
 		{
-			case 1:	whichUser = userLogin.login();
+			case 1:	strcpy (userID, userLogin.login());
+					whichUser = userID [0];
 					
 					if (whichUser == 'A')
 					{
@@ -64,7 +66,7 @@ int main ()
 					else if (whichUser == 'O')
 					{
 						int choice2;
-						Operator opr;
+						Operator opr(userID);
 						
 						do
 						{
