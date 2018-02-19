@@ -57,9 +57,12 @@ Contributor(s):
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Inventory/date.cpp</itemPath>
       <itemPath>inventory.cpp</itemPath>
       <itemPath>stock.cpp</itemPath>
+      <itemPath>Inventory/stock.cpp</itemPath>
       <itemPath>transaction.cpp</itemPath>
+      <itemPath>Inventory/transaction.cpp</itemPath>
       <itemPath>user.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -78,6 +81,12 @@ Contributor(s):
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Inventory/date.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/stock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/transaction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Stock.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">
@@ -119,6 +128,12 @@ Contributor(s):
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Inventory/date.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/stock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Inventory/transaction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="Stock.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="date.h" ex="false" tool="3" flavor2="0">

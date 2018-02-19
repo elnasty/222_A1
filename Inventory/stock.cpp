@@ -29,9 +29,10 @@ void Stock::modifyQty(int amt, char* staffID)
     }
 	
     qty = qty + amt;
-    Transaction transaction(GLOBALDATE.day, GLOBALDATE.month, GLOBALDATE.year, staffID, amt);
+    Transaction transaction(GLOBALDATE, staffID, amt);
 	
     transHist.push_front(transaction);
+    transCount = transHist.size();
 }
 
 double Stock::getTotalSale()
@@ -46,8 +47,8 @@ void Stock::displaySummary()
     cout << "Item Sub Category : " << itemSubCat << endl;
     cout << "Item Description  : " << itemDesc << endl;
     cout << "Quantity          : " << qty << endl;
-    cout << "Buy Price		   : " << buyPrice << endl;
-    cout << "Sell Price		   : " << sellPrice << endl;
+    cout << "Buy Price         : " << buyPrice << endl;
+    cout << "Sell Price        : " << sellPrice << endl;
 	
     list<Transaction>::iterator i;
     for (i = transHist.begin(); i != transHist.end(); ++i)
@@ -63,7 +64,7 @@ const char* Stock::getDesc() const
 {
     return itemDesc;
 }
-const char* Stock::getCategory() const
+const char* Stock::getCat() const
 {
     return itemCat;
 }
@@ -91,6 +92,10 @@ const char* Stock::getAlertMessage() const
 {
     return alertMsg;
 }
+int Stock::getTransCount() const
+{
+    return transCount;   
+}
 
 // mutators
 void Stock::setID(char* id)
@@ -101,7 +106,7 @@ void Stock::setDesc(char* desc)
 {
     strncpy(itemDesc, desc, LEN);
 }
-void Stock::setCategory(char* cat)
+void Stock::setCat(char* cat)
 {
     strncpy(itemCat, cat, LEN);
 }
@@ -129,10 +134,9 @@ void Stock::setAlertMessage(char* aM)
 {
     strncpy(alertMsg, aM, LEN);
 }
-
-// static
-int Stock::transCount = 0;
-int Stock::getTransCount()
+void Stock::setTransCount(int count)
 {
-    return transCount;
+    transCount = count;
 }
+
+

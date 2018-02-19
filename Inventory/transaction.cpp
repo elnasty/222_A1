@@ -18,15 +18,29 @@
 
 Transaction::Transaction(){}
 
-Transaction::Transaction(int d, int m, int y, char* c, int amt)
+// constructor for new transaction
+Transaction::Transaction(Date d, char* c, int amt)
 {
-    date.day = d;
-    date.month = m;
-    date.year = y;
+    date.day = d.day;
+    date.month = d.month;
+    date.year = d.year;
     
     strncpy(staffID, c, IDLEN);
     qtySold = amt;
     invoiceNo = ++objCount;
+}
+
+// constructor for reading transaction with existing invoice number
+Transaction::Transaction(Date d, char* c, int amt, int inv)
+{
+    date.day = d.day;
+    date.month = d.month;
+    date.year = d.year;
+    
+    strncpy(staffID, c, IDLEN);
+    qtySold = amt;
+    invoiceNo = inv;
+    ++objCount;
 }
 
 Transaction::~Transaction(){}

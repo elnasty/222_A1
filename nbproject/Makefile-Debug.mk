@@ -35,6 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Inventory/date.o \
+	${OBJECTDIR}/Inventory/stock.o \
+	${OBJECTDIR}/Inventory/transaction.o \
 	${OBJECTDIR}/inventory.o \
 	${OBJECTDIR}/stock.o \
 	${OBJECTDIR}/transaction.o \
@@ -64,6 +67,21 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/222_a1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/222_a1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Inventory/date.o: Inventory/date.cpp
+	${MKDIR} -p ${OBJECTDIR}/Inventory
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/date.o Inventory/date.cpp
+
+${OBJECTDIR}/Inventory/stock.o: Inventory/stock.cpp
+	${MKDIR} -p ${OBJECTDIR}/Inventory
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/stock.o Inventory/stock.cpp
+
+${OBJECTDIR}/Inventory/transaction.o: Inventory/transaction.cpp
+	${MKDIR} -p ${OBJECTDIR}/Inventory
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/transaction.o Inventory/transaction.cpp
 
 ${OBJECTDIR}/inventory.o: inventory.cpp
 	${MKDIR} -p ${OBJECTDIR}

@@ -32,7 +32,7 @@ class Stock
     int qty;
     int threshold;
     char alertMsg [LEN];
-    static int transCount;
+    int transCount;
     list<Transaction> transHist;
  public:
     Stock();
@@ -44,25 +44,26 @@ class Stock
     // accessors
     const char* getID() const;
     const char* getDesc() const;
-    const char* getCategory() const;
+    const char* getCat() const;
     const char* getSubCat() const;
     double getBuyPrice() const;
     double getSellPrice() const;
     int getQty() const;
     int getThreshold() const;
     const char* getAlertMessage() const;
-    static int getTransCount();
+    int getTransCount() const;
     
     // mutators
     void setID(char*);
     void setDesc(char*);
-    void setCategory(char*);
+    void setCat(char*);
     void setSubCat(char*);
     void setBuyPrice(double);
     void setSellPrice(double);
     void setQty(int quty);
     void setThreshold(int tHold);
     void setAlertMessage(char*); 
+    void setTransCount(int);
 };
 
 
