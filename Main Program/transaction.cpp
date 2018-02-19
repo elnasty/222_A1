@@ -47,14 +47,13 @@ Transaction::~Transaction(){}
 
 void Transaction::displayTrans()
 {
-    cout << qtySold;
     if (qtySold > 0)
-	cout << " sold by ";
+	cout << qtySold << " sold by ";
     else if (qtySold < 0)
-	cout << " bought by";
+	cout << -qtySold << " bought by ";
 	
     cout << staffID << " on " << setfill('0') << setw(2) 
-	 << date.day << setw(2) << date.month << date.year << endl;
+	 << date.day << "-" << setw(2) << date.month << "-" << date.year << endl;
 }
 
 // mutators

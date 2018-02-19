@@ -247,7 +247,7 @@ void Inventory::writeFile (const char* bFName)
                 itoa(it->getQuantitySold(), buffer, 10);
                 writeString(bFile, buffer);
                 
-                 writeString(bFile, it->getStaffID());
+                writeString(bFile, it->getStaffID());
                 
                 itoa(it->getInvoiceNo(), buffer, 10);
                 writeString(bFile, buffer);
