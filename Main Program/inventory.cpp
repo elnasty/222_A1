@@ -113,7 +113,6 @@ void Inventory::readFile (const char* bFName)
     
     // for transaction construction
     int qty;
-    Date date;
     bool found;
     
     while(!bFile.eof())
@@ -145,13 +144,14 @@ void Inventory::readFile (const char* bFName)
         str = readString(bFile);
         strcpy(buffer,str.c_str());
         num = atoi (buffer);
-        ps->setQty(getQty()+num);
+        ps->setQty(ps->getQty()+num);
         
         Transaction * pt;
         qty = num;
+        Date date;
         found = false;
         
-        list<stock>::iterator i;
+        list<Stock>::iterator i;
         for (i = stocks.begin(); i != stocks.end(); ++i)
         {
             if(i->stockMatch(*ps))
@@ -230,7 +230,7 @@ void Inventory::writeFile (const char* bFName)
             sprintf(buffer, "%f", i->getPrice());
             writeString(bFile, buffer);
             
-            itoa(it->getQtySold(), buffer, 10);
+            itoa(it->getQuantitySold(), buffer, 10);
             writeString(bFile, buffer);
             
             date = it->getDate();
@@ -281,7 +281,7 @@ void Inventory::writeFile (const char* bFName)
             itoa(date.year, buffer, 10);
             writeString(bFile, buffer);
         }    
-        
+    }
     bFile.close ();
 }
 

@@ -40,7 +40,7 @@ double Stock::getTotalSale()
     return qty*price;
 }
 
-bool stockMatch(Stock s) const
+bool Stock::stockMatch(Stock s) const
 {
     if(strcmp(itemId), s.getID())
         return false;

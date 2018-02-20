@@ -23,8 +23,8 @@ class Transaction
 {
  public:
      Transaction();
-     Transaction(Date, char*, int);
-     Transaction(Date, char*, int, int);
+     //Transaction(Date, char*, int);
+     //Transaction(Date, char*, int, int);
      ~Transaction();
      void displayTrans(Date, Date);
      void displayTrans();
