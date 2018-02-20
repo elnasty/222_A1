@@ -118,6 +118,9 @@ void Inventory::readFile (const char* bFName)
     
     while(!bFile.eof())
     {
+        if(bFile.eof())
+            break;
+        
         Stock * ps;
         ps = new Stock;
 		
@@ -167,11 +170,11 @@ void Inventory::readFile (const char* bFName)
                 ss >> year2d;              // yy will come out first
                 date.year = year2d + 2000;
                 
-                ss.getline(buffer, '-'); // first '-' is discarded
-                ss.getline(buffer, '-'); // buffer now contains 3char month
+                ss.get(); // first '-' is discarded
+                ss.getline(buffer, 4, '-'); // buffer now contains 3char month
                 
                 date.month = monthToInt(buffer);
-
+                
                 ss >> date.day;
 
                 pt = new Transaction(date, qty);
@@ -181,27 +184,31 @@ void Inventory::readFile (const char* bFName)
         
         if(!found)
         {
+            cout << "first creation of " << ps->getDesc() << " with qty of " << ps->getQty() << endl;
             stocks.push_back(*ps);
-        
-            str = readString(bFile); // this gets the dd-mmm-yy into str
-            ss << str;               // dd-mmm-yy into stringstream
             
+            str = readString(bFile); // this gets the dd-mm-yy into str
+            ss << str;               // dd-mm-yy into stringstream
+                
             ss >> year2d;              // yy will come out first
             date.year = year2d + 2000;
                 
-            ss.getline(buffer, '-'); // first '-' is discarded
-            ss.getline(buffer, '-'); // buffer now contains 3char month
+            ss.get(); // first '-' is discarded
+            ss.getline(buffer, 4, '-'); // buffer now contains 3char month
                 
             date.month = monthToInt(buffer);
-
+                
             ss >> date.day;
 
             pt = new Transaction(date, qty);
             ps->transHist.push_back(*pt);
+            cout << "first transaction of " << ps->transHist.front().getQuantitySold() << " on ";
+            displayDate(ps->transHist.front().getDate());
+            cout << endl;
         }
     }
     
-    //stocks.pop_back();
+    stocks.pop_back();
     totalStock = stocks.size();
     bFile.close();
 }

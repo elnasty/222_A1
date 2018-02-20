@@ -26,8 +26,10 @@ void updateDate(Date& date)
 
 void displayDate(Date date)
 {
+    cout << right;
     cout << setfill('0') << setw(2) << date.day << "/" << setw(2) << date.month 
          << "/" << date.year << setfill(' ') << "";
+    cout << left;
 }
 
 int monthToInt(char* c)

@@ -63,7 +63,7 @@ void Stock::getBoughtSold(int& bought, int& sold, Date date1, Date date2)
         return;
     for (i = transHist.begin(); i != transHist.end(); ++i)
     {
-        if(dateWithin(i->getDate(), date1, date2))
+        if(dateWithin(i->getDate(), date1, date2) || sameDate(i->getDate(), date1) || sameDate(i->getDate(), date2))
         {
             if(i->getQuantitySold() > 0)
                 sold += i->getQuantitySold();
@@ -92,10 +92,12 @@ void Stock::displaySummary(Date date1, Date date2)
     int bought = 0, sold = 0;
     
     getBoughtSold(bought, sold, date1, date2);
+    if(bought == 0 && sold == 0)
+        return;
     
     cout << fixed << setprecision(2) << setfill(' ');
     cout << left << setw(10) << itemID << setw(10) << bought << setw(10)
-         << sold << setw(25) << price << setw(15) << getTotalSale() << endl;
+         << sold << setw(25) << price << setw(15) << (sold-bought)*price << endl;
     	
     list<Transaction>::iterator i;
     for (i = transHist.begin(); i != transHist.end(); ++i)

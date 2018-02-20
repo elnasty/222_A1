@@ -56,6 +56,7 @@ Transaction::~Transaction(){}
 
 void Transaction::displayTrans()
 {
+    cout << setfill(' ') << setw(10) << "";
     if (qtySold > 0)
 	cout << qtySold << " sold on ";
     else if (qtySold < 0)
@@ -67,8 +68,9 @@ void Transaction::displayTrans()
 
 void Transaction::displayTrans(Date date1, Date date2)
 {
-    if(dateWithin(date, date1, date2))
+    if(dateWithin(date, date1, date2) || sameDate(date, date1) || sameDate(date, date2))
     {
+        cout << setfill(' ') << setw(10) << "";
         if (qtySold > 0)
             cout << qtySold << " sold on ";
         else if (qtySold < 0)
