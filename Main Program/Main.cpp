@@ -110,8 +110,28 @@ int main ()
 							cin.clear();
 							cin.ignore(MAXLEN, '\n');
 							cout << endl;
+							switch (choice3)
+							{
+								case 1: manager.editStock();
+								break;
+								
+								case 2: manager.searchStock();
+								break;
+								
+								case 3: manager.reviewTransactionSummary();
+								break;
+								
+								case 4: manager.stockAlert();
+								break;
+								
+								case 5:
+								break;
+								
+								default:	cout << "Invalid choice! " << endl;
 							
-						} while (choice3 != 6);
+							}
+							
+						} while (choice3 != 5);
 					} 
 					
 			break;

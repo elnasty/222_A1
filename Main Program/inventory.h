@@ -35,8 +35,13 @@ class Inventory
     void encryptFile(const char*, const char*);
     void readFile(const char*);
     void writeFile(const char*);
-    void searchStock(const int);
-    void searchStock(const char*);
+    bool searchStockID(const char*);
+    bool searchStockCat(const char*);
+	bool searchStockSubCat(const char*);
+	bool searchStockBuyPrice(double, double);
+	bool searchStockSellPrice(double, double);
+	bool searchStockQtyRange(int, int);
+	
  
     int totalStock;
     list<Stock> stocks;

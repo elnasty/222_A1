@@ -1,6 +1,6 @@
 #include "AccountHeader.h"
 
-AccountData database ("AccountData.dat");
+AccountData database ("AccountData.txt", "AccountData.dat");
 Inventory inventory ("items.txt", "items.dat");
 
 //Constructors

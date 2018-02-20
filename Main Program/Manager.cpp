@@ -6,7 +6,6 @@ class Manager
 		Manager();
 		~Manager();
 		void editStock();
-		void orderStock();
 		void stockAlert();
 		void searchStock();
 		void reviewTransactionSummary();
@@ -68,10 +67,15 @@ void Manager :: editStock()
 			{
 				case 'a':	char desc[LEN];
 							cout << "New Item Desciption: ";
-							cin >> desc;
-							cin.clear ();
-							cin.ignore (MAXLEN, '\n');
-							i -> setDesc (desc);
+							cin.getline (desc, LEN, '\n');
+							
+							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+							{
+								if (strcmp(itemID, i->getID()) == 0)
+								{
+									i -> setDesc (desc);
+								}
+							}
 						
 				break;
 										
@@ -80,7 +84,16 @@ void Manager :: editStock()
 							cin >> itemCat;
 							cin.clear ();
 							cin.ignore (MAXLEN, '\n');
-							i -> setCat (itemCat);
+							
+							
+							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+							{
+								if (strcmp(itemID, i->getID()) == 0)
+								{
+									i -> setCat (itemCat);
+								}
+							}
+							
 				break;
 										
 				case 'c': 	char itemSubCat [LEN];
@@ -88,7 +101,15 @@ void Manager :: editStock()
 							cin >> itemSubCat;
 							cin.clear ();
 							cin.ignore (MAXLEN, '\n');
-							i -> setSubCat (itemSubCat);
+							
+							
+							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+							{
+								if (strcmp(itemID, i->getID()) == 0)
+								{
+									i -> setSubCat (itemSubCat);
+								}
+							}
 				break;
 										
 				case 'd':	double buyPrice;
@@ -96,7 +117,15 @@ void Manager :: editStock()
 							cin >> buyPrice;
 							cin.clear ();
 							cin.ignore (MAXLEN, '\n');
-							i -> setBuyPrice (buyPrice);
+							
+							
+							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+							{
+								if (strcmp(itemID, i->getID()) == 0)
+								{
+									i -> setBuyPrice (buyPrice);
+								}
+							}
 				break;
 				
 				case 'e':	double sellPrice;
@@ -104,7 +133,15 @@ void Manager :: editStock()
 							cin >> sellPrice;
 							cin.clear ();
 							cin.ignore (MAXLEN, '\n');
-							i -> setSellPrice (sellPrice);
+							
+							
+							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+							{
+								if (strcmp(itemID, i->getID()) == 0)
+								{
+									i -> setSellPrice (sellPrice);
+								}
+							}
 				break;
 				
 				case 'f':	int qty;
@@ -112,7 +149,15 @@ void Manager :: editStock()
 							cin >> qty;
 							cin.clear ();
 							cin.ignore (MAXLEN, '\n');
-							i -> setQty (qty);
+							
+							
+							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+							{
+								if (strcmp(itemID, i->getID()) == 0)
+								{
+									i -> setQty (qty);
+								}
+							}
 				break;
 				
 				case 'g':
@@ -126,8 +171,8 @@ void Manager :: editStock()
 	}
 	else
 	{
-		cout << "Item with ID /'" << itemID
-			 << "/' not found!" << endl;
+		cout << "Item with ID \'" << itemID
+			 << "\' not found!" << endl;
 			 
 	}
 }
@@ -135,36 +180,126 @@ void Manager :: editStock()
 void Manager :: searchStock()
 {
 	char choice;
-	cout << "--------------------------------------\n";
-	cout << "Search Stock Menu\n";
-	cout << "--------------------------------------\n";
-	cout << "a) Item Description\n";
-	cout << "b) Category\n";
-	cout << "c) Sub-Category\n";
-	cout << "d) Buy Price\n";
-	cout << "e) Sell Price\n";
-	cout << "f) Quantity\n";
-	cout << "g) Back\n";
-	cout << "--------------------------------------\n";
-	cout << "Choice: ";
-	cin >> choice;
-	cin.clear ();
-	cin.ignore (MAXLEN, '\n');
+	double lower, upper;
+	int lower1, upper1;
+	char buffer [LEN];
+	
+	do
+	{
+		cout << "--------------------------------------\n";
+		cout << "Search Stock Menu\n";
+		cout << "--------------------------------------\n";
+		cout << "a) Item ID\n";
+		cout << "b) Category\n";
+		cout << "c) Sub-Category\n";
+		cout << "d) Buy Price Range\n";
+		cout << "e) Sell Price Range\n";
+		cout << "f) Quantity Range\n";
+		cout << "g) Back\n";
+		cout << "--------------------------------------\n";
+		cout << "Choice: ";
+		cin >> choice;
+		cin.clear ();
+		cin.ignore (MAXLEN, '\n');
+		cout << endl;
+		
+		switch (choice)
+		{
+			case 'a': 	cout << "Please enter Item ID: ";
+						cin >> buffer;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						if (!inventory.searchStockID(buffer))
+						{
+							cout << "No item of ID \'" 
+								 << buffer << "\' found!" << endl;
+						}
+			break;
+			
+			case 'b': 	cout << "Please enter Item Category: ";
+						cin >> buffer;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						if (!inventory.searchStockCat(buffer))
+						{
+							cout << "No item of Category \'" 
+								 << buffer << "\' found!" << endl;
+						}
+			break;
+			
+			case 'c':	cout << "Please enter Item Sub-Category: ";
+						cin >> buffer;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						if (!inventory.searchStockSubCat(buffer))
+						{
+							cout << "No item of Sub-Category \'" 
+								 << buffer << "\' found!" << endl;
+						}
+			break;
+			
+			case 'd':	cout << "Please enter Item Buy Price lower range: ";
+						cin >> lower;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						cout << "Please enter Item Buy Price upper range: ";
+						cin >> upper;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						if (!inventory.searchStockBuyPrice(lower, upper))
+						{
+							cout << "No item found within range!" << endl;
+						}
+			break;
+			
+			case 'e':	cout << "Please enter Item Sell Price lower range: ";
+						cin >> lower;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						cout << "Please enter Item Sell Price upper range: ";
+						cin >> upper;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						if (!inventory.searchStockSellPrice(lower, upper))
+						{
+							cout << "No item found within range!" << endl;
+						}
+			break;
+			
+			case 'f':	cout << "Please enter Item Quantity lower range: ";
+						cin >> lower1;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						cout << "Please enter Item Quantity upper range: ";
+						cin >> upper1;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						if (!inventory.searchStockQtyRange(lower1, upper1))
+						{
+							cout << "No item found within range!" << endl;
+						}
+			break;
+			
+			case 'g':
+			break;
+			
+			default: cout << "Invalid choice! " << endl;
+		}
+		
+		cout << endl;
+	}
+	while (choice != 'g');
 }
 
 void Manager :: reviewTransactionSummary()
 {
-
-}
-
-void Manager :: orderStock()
-{
-    
+	inventory.viewSummary();
 }
 
 void Manager :: stockAlert()
 {
     int threshold;
+	int j;
 	char alert[MAXLEN];
 	list<Stock>::iterator i;
 	char choice;
@@ -176,7 +311,8 @@ void Manager :: stockAlert()
 		cout << "--------------------------------------\n";
 		cout << "a) Set Threshold\n";
 		cout << "b) Set Alert Message\n";
-		cout << "c) Back\n";
+		cout << "c) View Stock Alert\n";
+		cout << "d) Back\n";
 		cout << "--------------------------------------\n";
 		cout << "Choice: ";
 		cin >> choice;
@@ -186,26 +322,53 @@ void Manager :: stockAlert()
 		switch (choice)
 		{
 		
-			case 'a':	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+			case 'a':	cout << "Enter new Threshold: ";
+						cin >> threshold;
+						cin.clear ();
+						cin.ignore (MAXLEN, '\n');
+						
+						for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
 						{
 							i -> setThreshold (threshold);
 						}
+						
+						cout << "Threshold: \'" << threshold << "\' set for all stocks!" << endl;
 			break;
 			
-			case 'b': 	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+			case 'b': 	cout << "Enter Alert Message: ";
+						cin.getline (alert, MAXLEN, '\n');
+						
+						for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
 						{
 							i -> setAlertMessage (alert);
 						}
+						
+						cout << "Alert Message: \'" << alert << "\' set for all stocks!" << endl;
 			break;
 			
-			case 'c':
+			case 'c':	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+						{
+							if (i->getQty() <= i->getThreshold())
+							{
+								i -> displaySummary();
+								++j;
+							}
+						}
+						
+						cout << endl;
+						cout << j << " stocks are below threshold! " << endl;
+						cout << "Alert Message: " << inventory.stocks.begin() -> getAlertMessage() << endl;
+			break;
+			
+			case 'd':
 			break;
 			
 			default: cout << "Invalid choice! " << endl;
 		}
+		
 		cout << endl;
 	
-	} while (choice != 'c');
+	} while (choice != 'd');
 	
 	
 }
@@ -217,10 +380,9 @@ void Manager :: displayManagerMenu()
     cout << "--------------------------------------\n";
     cout << "1) Edit Stock\n";
     cout << "2) Search Stock\n";
-    cout << "3) Order Stock\n";
-    cout << "4) Review Transaction Summary\n";
-    cout << "5) Manage Stock Alert\n";
-    cout << "6) Logout\n";
+    cout << "3) Review Transaction Summary\n";
+    cout << "4) Manage Stock Alert\n";
+    cout << "5) Logout\n";
 	cout << "--------------------------------------\n";
 }
 

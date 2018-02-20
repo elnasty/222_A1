@@ -258,25 +258,103 @@ void Inventory::writeFile (const char* bFName)
     bFile.close ();
 }
 
-void Inventory::searchStock(const char* ID)
+bool Inventory::searchStockID(const char* ID)
 {
-    list<Stock>::iterator i;
+    bool found = false;
+	list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
     {
         if(strcmp(i->getID(), ID) == 0)
+		{
             i->displaySummary();
+			found = true;
+		}
     }
+	
+	return found;
 }
-/*
-void Inventory::searchStock(const char* desc)
+
+bool Inventory::searchStockCat(const char* cat)
 {
+	bool found = false;
     list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
     {
-        if(!strcmp(i->getDesc(), desc))
+        if(strcmp(i->getCat(), cat) == 0)
+		{
             i->displaySummary();
+			found = true;
+		}
     }
-}*/
+	
+	return found;
+}
+
+bool Inventory::searchStockSubCat(const char* subCat)
+{
+    bool found = false;
+	list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+        if(strcmp(i->getSubCat(), subCat) == 0)
+		{
+            i->displaySummary();
+			found = true;
+		}
+    }
+	
+	return found;
+}
+
+bool Inventory::searchStockBuyPrice(double lower, double upper)
+{
+	bool found = false;
+    list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+        if(i->getBuyPrice() >= lower && i->getBuyPrice() <= upper)
+		{
+            i->displaySummary();
+			found = true;
+		}
+    }
+	
+	return found;
+}
+
+bool Inventory::searchStockSellPrice(double lower, double upper)
+{
+	bool found = false;
+    list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+        if(i->getSellPrice() >= lower && i->getSellPrice() <= upper)
+		{
+            i->displaySummary();
+			found = true;
+		}
+    }
+	
+	return found;
+}
+
+bool Inventory::searchStockQtyRange(int lower, int upper)
+{
+    bool found = false;
+	list<Stock>::iterator i;
+    for (i = stocks.begin(); i != stocks.end(); ++i)
+    {
+        if(i->getQty() >= lower && i->getQty() <= upper)
+		{
+            i->displaySummary();
+			found = true;
+		}
+    }
+	
+	return found;
+}
+
+
 
 void writeString(fstream& file, const string& str)
 {
