@@ -27,8 +27,7 @@ class Stock
     char itemDesc [LEN];
     char itemCat [LEN];
     char itemSubCat [LEN];
-    double buyPrice;
-    double sellPrice;
+    double price;
     int qty;
     int threshold;
     char alertMsg [LEN];
@@ -36,12 +35,13 @@ class Stock
  public:
     Stock();
     ~Stock();
-    void modifyQty(int, char*);
+    void modifyQty(int);
     double getTotalSale();
     void displaySummary(Date, Date);
     void displaySummary();
     void getAllBoughtSold(int&, int&);
     void getBoughtSold(int&, int&, Date, Date);
+    bool stockMatch(Stock) const;
     list<Transaction> transHist;
     
     // accessors
@@ -49,8 +49,7 @@ class Stock
     const char* getDesc() const;
     const char* getCat() const;
     const char* getSubCat() const;
-    double getBuyPrice() const;
-    double getSellPrice() const;
+    double getPrice() const;
     int getQty() const;
     int getThreshold() const;
     const char* getAlertMessage() const;
@@ -61,8 +60,7 @@ class Stock
     void setDesc(char*);
     void setCat(char*);
     void setSubCat(char*);
-    void setBuyPrice(double);
-    void setSellPrice(double);
+    void setPrice(double);
     void setQty(int quty);
     void setThreshold(int tHold);
     void setAlertMessage(char*); 

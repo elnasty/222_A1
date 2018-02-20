@@ -27,7 +27,35 @@ void updateDate(Date& date)
 void displayDate(Date date)
 {
     cout << setfill('0') << setw(2) << date.day << "/" << setw(2) << date.month 
-         << "/" << date.year;
+         << "/" << date.year << setfill(' ') << "";
+}
+
+int monthToInt(char* c)
+{
+    if(!strcmp(c, "Jan"))
+        return 1;
+    else if(!strcmp(c, "Feb"))
+        return 2;
+    else if(!strcmp(c, "Mar"))
+        return 3;
+    else if(!strcmp(c, "Apr"))
+        return 4;
+    else if(!strcmp(c, "May"))
+        return 5;
+    else if(!strcmp(c, "Jun"))
+        return 6;
+    else if(!strcmp(c, "Jul"))
+        return 7;
+    else if(!strcmp(c, "Aug"))
+        return 8;
+    else if(!strcmp(c, "Sep"))
+        return 9;
+    else if(!strcmp(c, "Oct"))
+        return 10;
+    else if(!strcmp(c, "Nov"))
+        return 11;
+    else if(!strcmp(c, "Dec"))
+        return 12;
 }
 
 void incrementDate(Date& date)
@@ -145,13 +173,11 @@ bool validDate(Date date)
 {
     if((date.year < 2000) || (date.year > 2018))
     {
-	cout << "year fail";
         return false;
     }
     
     if((date.month < 0) || (date.month > 12))
     {
-	cout << "month fail";
         return false;
     }
     

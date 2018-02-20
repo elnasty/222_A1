@@ -43,17 +43,26 @@ Transaction::Transaction(Date d, char* c, int amt, int inv)
     ++objCount;
 }
 
+Transaction::Transaction(date d, int amt)
+{
+    date.day = d.day;
+    date.month = d.month;
+    date.year = d.year;
+    
+    qtySold = amt;
+}
+
 Transaction::~Transaction(){}
 
 void Transaction::displayTrans()
 {
     if (qtySold > 0)
-	cout << qtySold << " sold by ";
+	cout << qtySold << " sold on ";
     else if (qtySold < 0)
-	cout << -qtySold << " bought by ";
-	
-    cout << staffID << " on " << setfill('0') << setw(2) 
-	 << date.day << "/" << setw(2) << date.month << "/" << date.year << endl;
+	cout << -qtySold << " bought on ";
+    
+    displayDate(date);
+    cout << endl;
 }
 
 void Transaction::displayTrans(Date date1, Date date2)
@@ -61,20 +70,20 @@ void Transaction::displayTrans(Date date1, Date date2)
     if(dateWithin(date, date1, date2))
     {
         if (qtySold > 0)
-            cout << qtySold << " sold by ";
+            cout << qtySold << " sold on ";
         else if (qtySold < 0)
-            cout << -qtySold << " bought by ";
+            cout << -qtySold << " bought on ";
 
-        cout << staffID << " on " << setfill('0') << setw(2) 
-             << date.day << "/" << setw(2) << date.month << "/" << date.year << endl;
+        displayDate(date);
+        cout << endl;
     }
 }
 
 // mutators
-void Transaction::setStaffID(char* SID)
+/*void Transaction::setStaffID(char* SID)
 {
     strncpy(staffID, SID, IDLEN);
-}
+}*/
 void Transaction::setInvoiceNo(int newInvoice)
 {
     invoiceNo = newInvoice;
@@ -107,10 +116,10 @@ int Transaction::getQuantityBought() const
 {
     return qtyBought;
 }
-const char* Transaction::getStaffID() const
+/*const char* Transaction::getStaffID() const
 {
     return staffID;
-}
+}*/
 Date Transaction::getDate() const
 {
     return date;

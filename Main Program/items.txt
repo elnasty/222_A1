@@ -1,5 +1,349 @@
-23:Nokia Phone:Electronics:Phone:200.5:500.5:100:20:Need Nokia Phones:0
-15:XBOX 360:Electronics:Console:300.5:666.6:100:20:PC Masterrace though:0
-27:Apple Phone:Electronics:Phone:100.5:800.5:100:20:Need Apple Phones:0
-30:Banana:Produce:Fruit:0.4:1.5:1000:50:Need Bananas:0
-50:Apple:Produce:Fruit:0.2:0.8:2000:200:Need Apple (the fruit):0
+103:Ergo Table:Furniture:Table:1000:139:10-Dec-13
+103:Ergo Table:Furniture:Table:1000:486:10-Dec-13
+103:Ergo Table:Furniture:Table:1000:-149:10-Dec-13
+053:Dan Sofa:Furniture:Sofa:1200:659:15-Dec-13
+053:Dan Sofa:Furniture:Sofa:1200:558:15-Dec-13
+053:Dan Sofa:Furniture:Sofa:1200:59:15-Dec-13
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:154:15-Dec-13
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:310:15-Dec-13
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-310:15-Dec-13
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:418:15-Dec-13
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:355:15-Dec-13
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:568:15-Dec-13
+078:Cisco Router:Electronics:Router:58:426:16-Dec-13
+078:Cisco Router:Electronics:Router:58:323:16-Dec-13
+078:Cisco Router:Electronics:Router:58:611:16-Dec-13
+068:Ergo Chair:Furniture:Chair:1200:626:16-Dec-13
+068:Ergo Chair:Furniture:Chair:1200:859:16-Dec-13
+068:Ergo Chair:Furniture:Chair:1200:-250:16-Dec-13
+079:D-Link Router:Electronics:Router:68:350:17-Dec-13
+079:D-Link Router:Electronics:Router:68:460:17-Dec-13
+079:D-Link Router:Electronics:Router:68:43:17-Dec-13
+088:Sony 100 Inch LED TV:Electronics:TV:8888:473:17-Dec-13
+088:Sony 100 Inch LED TV:Electronics:TV:8888:638:17-Dec-13
+088:Sony 100 Inch LED TV:Electronics:TV:8888:155:17-Dec-13
+089:LG 98 Inch TV:Electronics:TV:7888:852:18-Dec-13
+089:LG 98 Inch TV:Electronics:TV:7888:-142:18-Dec-13
+089:LG 98 Inch TV:Electronics:TV:7888:436:18-Dec-13
+101:Addidas ABC:Shoes:Trainers:80:-4:19-Dec-13
+101:Addidas ABC:Shoes:Trainers:80:-74:19-Dec-13
+101:Addidas ABC:Shoes:Trainers:80:52:19-Dec-13
+045:Nike ABC:Shoes:Trainers:50:-193:22-Dec-13
+045:Nike ABC:Shoes:Trainers:50:415:22-Dec-13
+045:Nike ABC:Shoes:Trainers:50:87:22-Dec-13
+045:Nike ABC:Shoes:Trainers:50:159:22-Dec-13
+045:Nike ABC:Shoes:Trainers:50:-91:22-Dec-13
+045:Nike ABC:Shoes:Trainers:50:-228:22-Dec-13
+103:Ergo Table:Furniture:Table:1000:168:10-Jan-14
+103:Ergo Table:Furniture:Table:1000:519:10-Jan-14
+053:Dan Sofa:Furniture:Sofa:1200:251:15-Jan-14
+053:Dan Sofa:Furniture:Sofa:1200:195:15-Jan-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:497:15-Jan-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:566:15-Jan-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:820:15-Jan-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:41:15-Jan-14
+078:Cisco Router:Electronics:Router:58:103:16-Jan-14
+078:Cisco Router:Electronics:Router:58:500:16-Jan-14
+068:Ergo Chair:Furniture:Chair:1200:91:16-Jan-14
+068:Ergo Chair:Furniture:Chair:1200:40:16-Jan-14
+079:D-Link Router:Electronics:Router:68:61:17-Jan-14
+079:D-Link Router:Electronics:Router:68:432:17-Jan-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:371:17-Jan-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:407:17-Jan-14
+089:LG 98 Inch TV:Electronics:TV:7888:-335:18-Jan-14
+089:LG 98 Inch TV:Electronics:TV:7888:517:18-Jan-14
+101:Addidas ABC:Shoes:Trainers:80:90:19-Jan-14
+101:Addidas ABC:Shoes:Trainers:80:86:19-Jan-14
+045:Nike ABC:Shoes:Trainers:50:34:22-Jan-14
+045:Nike ABC:Shoes:Trainers:50:51:22-Jan-14
+045:Nike ABC:Shoes:Trainers:50:184:22-Jan-14
+045:Nike ABC:Shoes:Trainers:50:196:22-Jan-14
+103:Ergo Table:Furniture:Table:1000:-91:10-Feb-14
+103:Ergo Table:Furniture:Table:1000:441:10-Feb-14
+053:Dan Sofa:Furniture:Sofa:1200:454:15-Feb-14
+053:Dan Sofa:Furniture:Sofa:1200:603:15-Feb-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:268:15-Feb-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-405:15-Feb-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:447:15-Feb-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:271:15-Feb-14
+078:Cisco Router:Electronics:Router:58:-43:16-Feb-14
+078:Cisco Router:Electronics:Router:58:-94:16-Feb-14
+068:Ergo Chair:Furniture:Chair:1200:208:16-Feb-14
+068:Ergo Chair:Furniture:Chair:1200:893:16-Feb-14
+079:D-Link Router:Electronics:Router:68:-68:17-Feb-14
+079:D-Link Router:Electronics:Router:68:895:17-Feb-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:297:17-Feb-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:738:17-Feb-14
+089:LG 98 Inch TV:Electronics:TV:7888:389:18-Feb-14
+089:LG 98 Inch TV:Electronics:TV:7888:192:18-Feb-14
+101:Addidas ABC:Shoes:Trainers:80:245:19-Feb-14
+101:Addidas ABC:Shoes:Trainers:80:140:19-Feb-14
+045:Nike ABC:Shoes:Trainers:50:211:22-Feb-14
+045:Nike ABC:Shoes:Trainers:50:395:22-Feb-14
+045:Nike ABC:Shoes:Trainers:50:87:22-Feb-14
+045:Nike ABC:Shoes:Trainers:50:536:22-Feb-14
+103:Ergo Table:Furniture:Table:1000:228:10-Mar-14
+103:Ergo Table:Furniture:Table:1000:706:10-Mar-14
+053:Dan Sofa:Furniture:Sofa:1200:-267:15-Mar-14
+053:Dan Sofa:Furniture:Sofa:1200:366:15-Mar-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:575:15-Mar-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-293:15-Mar-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:661:15-Mar-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:307:15-Mar-14
+078:Cisco Router:Electronics:Router:58:300:16-Mar-14
+078:Cisco Router:Electronics:Router:58:337:16-Mar-14
+068:Ergo Chair:Furniture:Chair:1200:754:16-Mar-14
+068:Ergo Chair:Furniture:Chair:1200:398:16-Mar-14
+079:D-Link Router:Electronics:Router:68:-107:17-Mar-14
+079:D-Link Router:Electronics:Router:68:675:17-Mar-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:-50:17-Mar-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:207:17-Mar-14
+089:LG 98 Inch TV:Electronics:TV:7888:-356:18-Mar-14
+089:LG 98 Inch TV:Electronics:TV:7888:557:18-Mar-14
+101:Addidas ABC:Shoes:Trainers:80:289:19-Mar-14
+101:Addidas ABC:Shoes:Trainers:80:406:19-Mar-14
+045:Nike ABC:Shoes:Trainers:50:-130:22-Mar-14
+045:Nike ABC:Shoes:Trainers:50:286:22-Mar-14
+045:Nike ABC:Shoes:Trainers:50:-205:22-Mar-14
+045:Nike ABC:Shoes:Trainers:50:858:22-Mar-14
+103:Ergo Table:Furniture:Table:1000:-213:10-Apr-14
+103:Ergo Table:Furniture:Table:1000:337:10-Apr-14
+053:Dan Sofa:Furniture:Sofa:1200:-25:15-Apr-14
+053:Dan Sofa:Furniture:Sofa:1200:630:15-Apr-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-120:15-Apr-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:124:15-Apr-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:530:15-Apr-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-143:15-Apr-14
+078:Cisco Router:Electronics:Router:58:470:16-Apr-14
+078:Cisco Router:Electronics:Router:58:436:16-Apr-14
+068:Ergo Chair:Furniture:Chair:1200:-30:16-Apr-14
+068:Ergo Chair:Furniture:Chair:1200:98:16-Apr-14
+079:D-Link Router:Electronics:Router:68:229:17-Apr-14
+079:D-Link Router:Electronics:Router:68:199:17-Apr-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:253:17-Apr-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:452:17-Apr-14
+089:LG 98 Inch TV:Electronics:TV:7888:502:18-Apr-14
+089:LG 98 Inch TV:Electronics:TV:7888:402:18-Apr-14
+101:Addidas ABC:Shoes:Trainers:80:-266:19-Apr-14
+101:Addidas ABC:Shoes:Trainers:80:-415:19-Apr-14
+045:Nike ABC:Shoes:Trainers:50:366:22-Apr-14
+045:Nike ABC:Shoes:Trainers:50:-75:22-Apr-14
+045:Nike ABC:Shoes:Trainers:50:714:22-Apr-14
+045:Nike ABC:Shoes:Trainers:50:89:22-Apr-14
+053:Dan Sofa:Furniture:Sofa:1200:146:01-May-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:619:01-May-14
+045:Nike ABC:Shoes:Trainers:50:454:02-May-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:550:02-May-14
+068:Ergo Chair:Furniture:Chair:1200:-129:03-May-14
+045:Nike ABC:Shoes:Trainers:50:-130:03-May-14
+078:Cisco Router:Electronics:Router:58:845:04-May-14
+079:D-Link Router:Electronics:Router:68:-28:04-May-14
+089:LG 98 Inch TV:Electronics:TV:7888:492:05-May-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:-326:05-May-14
+101:Addidas ABC:Shoes:Trainers:80:-381:06-May-14
+103:Ergo Table:Furniture:Table:1000:102:06-May-14
+053:Dan Sofa:Furniture:Sofa:1200:900:07-May-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:964:07-May-14
+045:Nike ABC:Shoes:Trainers:50:-130:08-May-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:546:08-May-14
+068:Ergo Chair:Furniture:Chair:1200:-442:09-May-14
+045:Nike ABC:Shoes:Trainers:50:16:09-May-14
+078:Cisco Router:Electronics:Router:58:472:10-May-14
+079:D-Link Router:Electronics:Router:68:591:10-May-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:-22:11-May-14
+089:LG 98 Inch TV:Electronics:TV:7888:547:12-May-14
+101:Addidas ABC:Shoes:Trainers:80:172:13-May-14
+103:Ergo Table:Furniture:Table:1000:-14:13-May-14
+053:Dan Sofa:Furniture:Sofa:1200:523:01-Jun-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:708:01-Jun-14
+045:Nike ABC:Shoes:Trainers:50:181:02-Jun-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-248:02-Jun-14
+068:Ergo Chair:Furniture:Chair:1200:284:03-Jun-14
+045:Nike ABC:Shoes:Trainers:50:41:03-Jun-14
+078:Cisco Router:Electronics:Router:58:90:04-Jun-14
+079:D-Link Router:Electronics:Router:68:315:04-Jun-14
+089:LG 98 Inch TV:Electronics:TV:7888:-347:05-Jun-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:48:05-Jun-14
+101:Addidas ABC:Shoes:Trainers:80:303:06-Jun-14
+103:Ergo Table:Furniture:Table:1000:-48:06-Jun-14
+053:Dan Sofa:Furniture:Sofa:1200:369:07-Jun-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:539:07-Jun-14
+045:Nike ABC:Shoes:Trainers:50:47:08-Jun-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:845:08-Jun-14
+068:Ergo Chair:Furniture:Chair:1200:171:09-Jun-14
+045:Nike ABC:Shoes:Trainers:50:371:09-Jun-14
+078:Cisco Router:Electronics:Router:58:741:10-Jun-14
+079:D-Link Router:Electronics:Router:68:-120:10-Jun-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:-143:11-Jun-14
+089:LG 98 Inch TV:Electronics:TV:7888:601:12-Jun-14
+101:Addidas ABC:Shoes:Trainers:80:256:13-Jun-14
+103:Ergo Table:Furniture:Table:1000:587:13-Jun-14
+053:Dan Sofa:Furniture:Sofa:1200:359:01-Jul-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:487:01-Jul-14
+045:Nike ABC:Shoes:Trainers:50:675:02-Jul-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:376:02-Jul-14
+068:Ergo Chair:Furniture:Chair:1200:-68:03-Jul-14
+045:Nike ABC:Shoes:Trainers:50:76:03-Jul-14
+078:Cisco Router:Electronics:Router:58:643:04-Jul-14
+079:D-Link Router:Electronics:Router:68:-188:04-Jul-14
+089:LG 98 Inch TV:Electronics:TV:7888:-52:05-Jul-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:596:05-Jul-14
+101:Addidas ABC:Shoes:Trainers:80:231:07-Jul-14
+053:Dan Sofa:Furniture:Sofa:1200:268:07-Jul-14
+103:Ergo Table:Furniture:Table:1000:35:07-Jul-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-258:07-Jul-14
+045:Nike ABC:Shoes:Trainers:50:368:08-Jul-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:640:08-Jul-14
+068:Ergo Chair:Furniture:Chair:1200:465:09-Jul-14
+045:Nike ABC:Shoes:Trainers:50:579:09-Jul-14
+078:Cisco Router:Electronics:Router:58:486:10-Jul-14
+079:D-Link Router:Electronics:Router:68:348:10-Jul-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:664:11-Jul-14
+089:LG 98 Inch TV:Electronics:TV:7888:20:12-Jul-14
+101:Addidas ABC:Shoes:Trainers:80:336:13-Jul-14
+103:Ergo Table:Furniture:Table:1000:-183:13-Jul-14
+053:Dan Sofa:Furniture:Sofa:1200:811:01-Aug-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:218:01-Aug-14
+045:Nike ABC:Shoes:Trainers:50:513:02-Aug-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:17:02-Aug-14
+068:Ergo Chair:Furniture:Chair:1200:44:03-Aug-14
+045:Nike ABC:Shoes:Trainers:50:-99:03-Aug-14
+078:Cisco Router:Electronics:Router:58:639:04-Aug-14
+079:D-Link Router:Electronics:Router:68:-441:04-Aug-14
+089:LG 98 Inch TV:Electronics:TV:7888:128:05-Aug-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:-254:05-Aug-14
+101:Addidas ABC:Shoes:Trainers:80:39:07-Aug-14
+053:Dan Sofa:Furniture:Sofa:1200:-194:07-Aug-14
+103:Ergo Table:Furniture:Table:1000:201:07-Aug-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:662:07-Aug-14
+045:Nike ABC:Shoes:Trainers:50:146:08-Aug-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:589:08-Aug-14
+068:Ergo Chair:Furniture:Chair:1200:756:09-Aug-14
+045:Nike ABC:Shoes:Trainers:50:-286:09-Aug-14
+078:Cisco Router:Electronics:Router:58:-244:10-Aug-14
+079:D-Link Router:Electronics:Router:68:-152:10-Aug-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:286:11-Aug-14
+089:LG 98 Inch TV:Electronics:TV:7888:52:12-Aug-14
+101:Addidas ABC:Shoes:Trainers:80:6:13-Aug-14
+103:Ergo Table:Furniture:Table:1000:38:13-Aug-14
+053:Dan Sofa:Furniture:Sofa:1200:876:01-Sep-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:401:01-Sep-14
+045:Nike ABC:Shoes:Trainers:50:313:02-Sep-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:610:02-Sep-14
+068:Ergo Chair:Furniture:Chair:1200:217:03-Sep-14
+045:Nike ABC:Shoes:Trainers:50:859:03-Sep-14
+078:Cisco Router:Electronics:Router:58:765:04-Sep-14
+079:D-Link Router:Electronics:Router:68:448:04-Sep-14
+089:LG 98 Inch TV:Electronics:TV:7888:236:05-Sep-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:709:05-Sep-14
+101:Addidas ABC:Shoes:Trainers:80:409:07-Sep-14
+053:Dan Sofa:Furniture:Sofa:1200:-100:07-Sep-14
+103:Ergo Table:Furniture:Table:1000:703:07-Sep-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:503:07-Sep-14
+045:Nike ABC:Shoes:Trainers:50:223:08-Sep-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:281:08-Sep-14
+068:Ergo Chair:Furniture:Chair:1200:215:09-Sep-14
+045:Nike ABC:Shoes:Trainers:50:256:09-Sep-14
+078:Cisco Router:Electronics:Router:58:244:10-Sep-14
+079:D-Link Router:Electronics:Router:68:436:10-Sep-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:-257:11-Sep-14
+089:LG 98 Inch TV:Electronics:TV:7888:-309:12-Sep-14
+101:Addidas ABC:Shoes:Trainers:80:-192:13-Sep-14
+103:Ergo Table:Furniture:Table:1000:479:13-Sep-14
+053:Dan Sofa:Furniture:Sofa:1200:-263:01-Oct-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:203:01-Oct-14
+045:Nike ABC:Shoes:Trainers:50:212:02-Oct-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:777:02-Oct-14
+068:Ergo Chair:Furniture:Chair:1200:558:03-Oct-14
+045:Nike ABC:Shoes:Trainers:50:90:03-Oct-14
+078:Cisco Router:Electronics:Router:58:540:04-Oct-14
+079:D-Link Router:Electronics:Router:68:189:04-Oct-14
+089:LG 98 Inch TV:Electronics:TV:7888:561:05-Oct-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:336:05-Oct-14
+101:Addidas ABC:Shoes:Trainers:80:230:07-Oct-14
+053:Dan Sofa:Furniture:Sofa:1200:210:07-Oct-14
+103:Ergo Table:Furniture:Table:1000:490:07-Oct-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:738:07-Oct-14
+045:Nike ABC:Shoes:Trainers:50:-28:08-Oct-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:198:08-Oct-14
+068:Ergo Chair:Furniture:Chair:1200:558:09-Oct-14
+045:Nike ABC:Shoes:Trainers:50:275:09-Oct-14
+078:Cisco Router:Electronics:Router:58:103:10-Oct-14
+079:D-Link Router:Electronics:Router:68:437:10-Oct-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:577:11-Oct-14
+089:LG 98 Inch TV:Electronics:TV:7888:572:12-Oct-14
+101:Addidas ABC:Shoes:Trainers:80:330:13-Oct-14
+103:Ergo Table:Furniture:Table:1000:444:13-Oct-14
+053:Dan Sofa:Furniture:Sofa:1200:-31:01-Nov-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-188:01-Nov-14
+045:Nike ABC:Shoes:Trainers:50:-221:02-Nov-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:329:02-Nov-14
+068:Ergo Chair:Furniture:Chair:1200:225:03-Nov-14
+045:Nike ABC:Shoes:Trainers:50:172:03-Nov-14
+078:Cisco Router:Electronics:Router:58:905:04-Nov-14
+079:D-Link Router:Electronics:Router:68:-398:04-Nov-14
+089:LG 98 Inch TV:Electronics:TV:7888:-69:05-Nov-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:18:05-Nov-14
+101:Addidas ABC:Shoes:Trainers:80:603:07-Nov-14
+053:Dan Sofa:Furniture:Sofa:1200:-11:07-Nov-14
+103:Ergo Table:Furniture:Table:1000:-73:07-Nov-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-398:07-Nov-14
+045:Nike ABC:Shoes:Trainers:50:-84:08-Nov-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-91:08-Nov-14
+068:Ergo Chair:Furniture:Chair:1200:664:09-Nov-14
+045:Nike ABC:Shoes:Trainers:50:-88:09-Nov-14
+078:Cisco Router:Electronics:Router:58:765:10-Nov-14
+079:D-Link Router:Electronics:Router:68:920:10-Nov-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:130:11-Nov-14
+089:LG 98 Inch TV:Electronics:TV:7888:319:12-Nov-14
+101:Addidas ABC:Shoes:Trainers:80:71:13-Nov-14
+103:Ergo Table:Furniture:Table:1000:741:13-Nov-14
+053:Dan Sofa:Furniture:Sofa:1200:-75:01-Dec-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-299:01-Dec-14
+045:Nike ABC:Shoes:Trainers:50:106:02-Dec-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:3:02-Dec-14
+068:Ergo Chair:Furniture:Chair:1200:212:03-Dec-14
+045:Nike ABC:Shoes:Trainers:50:507:03-Dec-14
+078:Cisco Router:Electronics:Router:58:639:04-Dec-14
+079:D-Link Router:Electronics:Router:68:270:04-Dec-14
+089:LG 98 Inch TV:Electronics:TV:7888:-183:05-Dec-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:721:05-Dec-14
+101:Addidas ABC:Shoes:Trainers:80:425:07-Dec-14
+053:Dan Sofa:Furniture:Sofa:1200:211:07-Dec-14
+103:Ergo Table:Furniture:Table:1000:356:07-Dec-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-208:07-Dec-14
+045:Nike ABC:Shoes:Trainers:50:-128:08-Dec-14
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:224:08-Dec-14
+068:Ergo Chair:Furniture:Chair:1200:363:09-Dec-14
+045:Nike ABC:Shoes:Trainers:50:503:09-Dec-14
+078:Cisco Router:Electronics:Router:58:363:10-Dec-14
+079:D-Link Router:Electronics:Router:68:-197:10-Dec-14
+088:Sony 100 Inch LED TV:Electronics:TV:8888:42:11-Dec-14
+089:LG 98 Inch TV:Electronics:TV:7888:-167:12-Dec-14
+101:Addidas ABC:Shoes:Trainers:80:54:13-Dec-14
+103:Ergo Table:Furniture:Table:1000:-52:13-Dec-14
+103:Ergo Table:Furniture:Table:1000:282:10-Jan-15
+103:Ergo Table:Furniture:Table:1000:468:10-Jan-15
+053:Dan Sofa:Furniture:Sofa:1200:-207:15-Jan-15
+053:Dan Sofa:Furniture:Sofa:1200:700:15-Jan-15
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:508:15-Jan-15
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:337:15-Jan-15
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:-15:15-Jan-15
+023:Samsung Phone XYZ:Electronics:Mobile Phone:300:50:15-Jan-15
+078:Cisco Router:Electronics:Router:58:386:16-Jan-15
+078:Cisco Router:Electronics:Router:58:828:16-Jan-15
+068:Ergo Chair:Furniture:Chair:1200:316:16-Jan-15
+068:Ergo Chair:Furniture:Chair:1200:235:16-Jan-15
+079:D-Link Router:Electronics:Router:68:11:17-Jan-15
+079:D-Link Router:Electronics:Router:68:357:17-Jan-15
+088:Sony 100 Inch LED TV:Electronics:TV:8888:126:17-Jan-15
+088:Sony 100 Inch LED TV:Electronics:TV:8888:400:17-Jan-15
+089:LG 98 Inch TV:Electronics:TV:7888:761:18-Jan-15
+089:LG 98 Inch TV:Electronics:TV:7888:931:18-Jan-15
+101:Addidas ABC:Shoes:Trainers:80:477:19-Jan-15
+101:Addidas ABC:Shoes:Trainers:80:-191:19-Jan-15
+045:Nike ABC:Shoes:Trainers:50:314:22-Jan-15
+045:Nike ABC:Shoes:Trainers:50:220:22-Jan-15
+045:Nike ABC:Shoes:Trainers:50:467:22-Jan-15
+045:Nike ABC:Shoes:Trainers:50:657:22-Jan-15
+

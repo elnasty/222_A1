@@ -45,9 +45,9 @@ void Inventory::viewSummary(Date date1, Date date2)
     cout << endl << endl;
     
     cout << setfill(' ');
-    cout << left << setw(10) << "Stock ID" << setw(10) << "Bought" << setw(10)
-         << "Sold" << setw(15) << "Buy Price" << setw(15) << "Sell Price"
-         << setw(15) << "Profits" << endl << endl;
+    cout << left << setw(10) << "Stock ID" << setw(10) << "In" << setw(10)
+         << "Out" << setw(25) << "Amount (Per Unit)" << setw(15) << "Profits" 
+         << endl << endl;
     
     list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
@@ -86,7 +86,7 @@ void Inventory::encryptFile (const char* tFName, const char* bFName)
         while (pc != NULL)
         {
             writeString(bFile, pc);
-            pc = strtok (NULL, ":");
+            pc = strtok (NULL, ":-");
         }
     }
     
@@ -110,8 +110,11 @@ void Inventory::readFile (const char* bFName)
     double d;
     int num;
     char * buffer = new char [LEN];
-    char * buffer2 = new char [LEN];
-    int i = 0;
+    
+    // for transaction construction
+    int qty;
+    Date date;
+    bool found;
     
     while(!bFile.eof())
     {
@@ -137,71 +140,63 @@ void Inventory::readFile (const char* bFName)
         str = readString(bFile);
         strcpy(buffer,str.c_str());
         d = atof (buffer);
-        ps->setBuyPrice(d);
-        
-        str = readString(bFile);
-        strcpy(buffer,str.c_str());
-        d = atof (buffer);
-        ps->setSellPrice(d);
+        ps->setPrice(d);
         
         str = readString(bFile);
         strcpy(buffer,str.c_str());
         num = atoi (buffer);
-        ps->setQty(num);
+        ps->setQty(getQty()+num);
         
-        str = readString(bFile);
-        strcpy(buffer,str.c_str());
-        num = atoi (buffer);
-        ps->setThreshold(num);
+        Transaction * pt;
+        qty = num;
+        found = false;
         
-        str = readString(bFile);
-        strcpy(buffer,str.c_str());
-        ps->setAlertMessage(buffer);
-        
-        str = readString(bFile);
-        strcpy(buffer,str.c_str());
-        num = atoi (buffer);
-        ps->setTransCount(num);
-        
-        if(ps->getTransCount() > 0)
+        list<stock>::iterator i;
+        for (i = stocks.begin(); i != stocks.end(); ++i)
         {
-            int amt, inv;
-            Date date;
-            for(int i = 0; i < ps->getTransCount(); ++i)
+            if(i->stockMatch(*ps))
             {
-                Transaction * pt;               
-                
+                found = true;
+                i->setQty(i->getQty()+num);
                 str = readString(bFile);
                 strcpy(buffer,str.c_str());
                 date.day = atoi (buffer);
-                
+
                 str = readString(bFile);
                 strcpy(buffer,str.c_str());
-                date.month = atoi (buffer);
-                
+                date.month = monthToInt(buffer);
+
                 str = readString(bFile);
                 strcpy(buffer,str.c_str());
-                date.year = atoi (buffer);
-                
-                str = readString(bFile);
-                strcpy(buffer,str.c_str());
-                amt = atoi (buffer);
-                
-                str = readString(bFile);
-                strcpy(buffer2,str.c_str());
-                
-                str = readString(bFile);
-                strcpy(buffer,str.c_str());
-                inv = atoi (buffer);
-                
-                pt = new Transaction(date, buffer2, amt, inv);
-                ps->transHist.push_back(*pt);
+                date.year = 2000 + atoi (buffer);
+
+                pt = new Transaction(date, qty);
+                i->transHist.push_back(*pt);
             }
         }
-        stocks.push_back(*ps);
+        
+        if(!found)
+        {
+            stocks.push_back(*ps);
+        
+            str = readString(bFile);
+            strcpy(buffer,str.c_str());
+            date.day = atoi (buffer);
+
+            str = readString(bFile);
+            strcpy(buffer,str.c_str());
+            date.month = monthToInt(buffer);
+
+            str = readString(bFile);
+            strcpy(buffer,str.c_str());
+            date.year = 2000 + atoi (buffer);
+
+            pt = new Transaction(date, qty);
+            ps->transHist.push_back(*pt);
+        }
     }
     
-    stocks.pop_back();
+    //stocks.pop_back();
     totalStock = stocks.size();
     delete [] buffer;
     bFile.close();
@@ -219,54 +214,74 @@ void Inventory::writeFile (const char* bFName)
     }
     
     string str;
+    Date date;
     char buffer[LEN];
     list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
     {
-    	writeString(bFile, i->getID());
-        writeString(bFile, i->getDesc());
-        writeString(bFile, i->getCat());
-        writeString(bFile, i->getSubCat());
-        
-        sprintf(buffer, "%f", i->getBuyPrice());
-        writeString(bFile, buffer);
-        sprintf(buffer, "%f", i->getSellPrice());
-        writeString(bFile, buffer);
-        
-        itoa(i->getQty(), buffer, 10);
-        writeString(bFile, buffer);
-        itoa(i->getThreshold(), buffer, 10);
-        writeString(bFile, buffer);
-        
-        writeString(bFile, i->getAlertMessage());
-        
-        itoa(i->getTransCount(), buffer, 10);
-        writeString(bFile, buffer);
-        
-        if(i->getTransCount() > 0)
+        list<Transaction>::iterator it;
+        for(it = i->transHist.begin(); it != i->transHist.end(); ++it)
         {
-            list<Transaction>::iterator it;
-            for (it = i->transHist.begin(); it != i->transHist.end(); ++it)
+            writeString(bFile, i->getID());
+            writeString(bFile, i->getDesc());
+            writeString(bFile, i->getCat());
+            writeString(bFile, i->getSubCat());
+
+            sprintf(buffer, "%f", i->getPrice());
+            writeString(bFile, buffer);
+            
+            itoa(it->getQtySold(), buffer, 10);
+            writeString(bFile, buffer);
+            
+            date = it->getDate();
+            itoa(date.day, buffer, 10);
+            writeString(bFile, buffer);
+            
+            switch(date.month)
             {
-                Date date = it->getDate();
-                
-                itoa(date.day, buffer, 10);
-                writeString(bFile, buffer);
-                itoa(date.month, buffer, 10);
-                writeString(bFile, buffer);
-                itoa(date.year, buffer, 10);
-                writeString(bFile, buffer);
-                itoa(it->getQuantitySold(), buffer, 10);
-                writeString(bFile, buffer);
-                
-                writeString(bFile, it->getStaffID());
-                
-                itoa(it->getInvoiceNo(), buffer, 10);
-                writeString(bFile, buffer);
+                case 1:
+                    writeString(bFile, "Jan");
+                    break;
+                case 2:
+                    writeString(bFile, "Feb");
+                    break;
+                case 3:
+                    writeString(bFile, "Mar");
+                    break;
+                case 4:
+                    writeString(bFile, "Apr");
+                    break;
+                case 5:
+                    writeString(bFile, "May");
+                    break;
+                case 6:
+                    writeString(bFile, "Jun");
+                    break;
+                case 7:
+                    writeString(bFile, "Jul");
+                    break;
+                case 8:
+                    writeString(bFile, "Aug");
+                    break;
+                case 9:
+                    writeString(bFile, "Sep");
+                    break;
+                case 10:
+                    writeString(bFile, "Oct");
+                    break;
+                case 11:
+                    writeString(bFile, "Nov");
+                    break;
+                case 12:
+                    writeString(bFile, "Dec");
+                    break;
+                default:
+                    writeString(bFile, "???");
             }
-        }
-    }
-    
+            itoa(date.year, buffer, 10);
+            writeString(bFile, buffer);
+        }    
+        
     bFile.close ();
 }
 

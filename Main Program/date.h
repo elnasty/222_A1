@@ -42,6 +42,7 @@ void incrementDate(Date&);
 void inputDates(Date&, Date&);
 bool validDate(Date);
 bool dateWithin(Date, Date, Date);
+int monthToInt(char*);
 
 void reverse(char str[], int length);
 char* itoa(int num, char* str, int base);

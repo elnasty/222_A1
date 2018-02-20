@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=None-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -69,42 +69,42 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/222_a1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/222_a1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Inventory/date.o: Inventory/date.cpp
+${OBJECTDIR}/Inventory/date.o: Inventory/date.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Inventory
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/date.o Inventory/date.cpp
 
-${OBJECTDIR}/Inventory/inventory.o: Inventory/inventory.cpp
+${OBJECTDIR}/Inventory/inventory.o: Inventory/inventory.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Inventory
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/inventory.o Inventory/inventory.cpp
 
-${OBJECTDIR}/Inventory/stock.o: Inventory/stock.cpp
+${OBJECTDIR}/Inventory/stock.o: Inventory/stock.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Inventory
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/stock.o Inventory/stock.cpp
 
-${OBJECTDIR}/Inventory/transaction.o: Inventory/transaction.cpp
+${OBJECTDIR}/Inventory/transaction.o: Inventory/transaction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/Inventory
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Inventory/transaction.o Inventory/transaction.cpp
 
-${OBJECTDIR}/inventory.o: inventory.cpp
+${OBJECTDIR}/inventory.o: inventory.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/inventory.o inventory.cpp
 
-${OBJECTDIR}/stock.o: stock.cpp
+${OBJECTDIR}/stock.o: stock.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/stock.o stock.cpp
 
-${OBJECTDIR}/transaction.o: transaction.cpp
+${OBJECTDIR}/transaction.o: transaction.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/transaction.o transaction.cpp
 
-${OBJECTDIR}/user.o: user.cpp
+${OBJECTDIR}/user.o: user.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/user.o user.cpp
@@ -115,6 +115,7 @@ ${OBJECTDIR}/user.o: user.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/222_a1.exe
 
 # Subprojects
 .clean-subprojects:

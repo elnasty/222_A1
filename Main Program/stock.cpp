@@ -20,7 +20,7 @@ Stock::Stock(){}
 
 Stock::~Stock(){}
 
-void Stock::modifyQty(int amt, char* staffID)
+void Stock::modifyQty(int amt)
 {
     if(amt == 0)
     {
@@ -29,7 +29,7 @@ void Stock::modifyQty(int amt, char* staffID)
     }
 	
     qty = qty - amt;
-    Transaction* pt = new Transaction(GLOBALDATE, staffID, amt);
+    Transaction* pt = new Transaction(GLOBALDATE, amt);
 	
     transHist.push_front(*pt);
     transCount = transHist.size();
@@ -37,7 +37,23 @@ void Stock::modifyQty(int amt, char* staffID)
 
 double Stock::getTotalSale()
 {
-    //
+    return qty*price;
+}
+
+bool stockMatch(Stock s) const
+{
+    if(strcmp(itemId), s.getID())
+        return false;
+    if(strcmp(itemDesc), s.getDesc())
+        return false;
+    if(strcmp(itemCat), s.getCat())
+        return false;
+    if(strcmp(itemSubCat), s.getSubCat())
+        return false;
+    if( price != s.getPrice())
+        return false;
+    
+    return true;
 }
 
 void Stock::getBoughtSold(int& bought, int& sold, Date date1, Date date2)
@@ -74,15 +90,12 @@ void Stock::getAllBoughtSold(int& bought, int& sold)
 void Stock::displaySummary(Date date1, Date date2)
 {
     int bought = 0, sold = 0;
-    double profits = 0.0;
     
     getBoughtSold(bought, sold, date1, date2);
-    profits = sold*sellPrice - bought*buyPrice;
     
     cout << fixed << setprecision(2) << setfill(' ');
     cout << left << setw(10) << itemID << setw(10) << bought << setw(10)
-         << sold << setw(15) << buyPrice << setw(15) << sellPrice
-         << setw(15) << profits << endl;
+         << sold << setw(25) << price << setw(15) << getTotalSale() << endl;
     	
     list<Transaction>::iterator i;
     for (i = transHist.begin(); i != transHist.end(); ++i)
@@ -125,13 +138,9 @@ const char* Stock::getSubCat() const
 {
     return itemSubCat;
 }
-double Stock::getBuyPrice() const
+double Stock::getPrice() const
 {
-    return buyPrice;
-}
-double Stock::getSellPrice() const
-{
-    return sellPrice;
+    return price;
 }
 int Stock::getQty() const
 {
@@ -167,13 +176,9 @@ void Stock::setSubCat(char* subCat)
 {
     strncpy(itemSubCat, subCat, LEN);
 }
-void Stock::setBuyPrice(double bP)
+void Stock::setPrice(double p)
 {
-    buyPrice = bP;
-}
-void Stock::setSellPrice(double sP)
-{
-    sellPrice = sP;
+    buyPrice = p;
 }
 void Stock::setQty(int q)
 {

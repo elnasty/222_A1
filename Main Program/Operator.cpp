@@ -71,7 +71,7 @@ void Operator::addStockQty ()
 	    {
 	    	if (strcmp(itemID, i->getID()) == 0)
 			{
-		    	i->modifyQty(-(qty), staffID);
+		    	i->modifyQty(-(qty));
 			}
 	    }
 		
@@ -92,7 +92,6 @@ void Operator::addStockQty ()
 void Operator::rmStockQty ()
 {
 	char itemID [LEN];
-	char staffID [LEN];
 	int qty;
 	
 	cout << "Please enter Item ID: ";
@@ -130,7 +129,7 @@ void Operator::rmStockQty ()
 	    {
 	    	if (strcmp(itemID, i->getID()) == 0)
 			{
-				i->modifyQty(qty, staffID);
+				i->modifyQty(qty);
 			}
 	    }
 		
