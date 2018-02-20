@@ -38,7 +38,7 @@ void displayDate(Date);
 int daysBetween(Date, Date);
 bool dateEarlierDate(Date, Date);
 bool sameDate(Date, Date);
-void incrementDate(Date);
+void incrementDate(Date&);
 void inputDates(Date&, Date&);
 bool validDate(Date);
 bool dateWithin(Date, Date, Date);

@@ -30,7 +30,7 @@ void displayDate(Date date)
          << "/" << date.year;
 }
 
-void incrementDate(Date date)
+void incrementDate(Date& date)
 {
     date.day += 1;
     
@@ -97,11 +97,10 @@ bool dateEarlierDate(Date date1, Date date2)
 int daysBetween(Date date1, Date date2)
 {
     int i = 0;
-    bool date2earlier = false;
     
     if(dateEarlierDate(date1, date2))
         while (!sameDate(date1, date2))
-        {
+        {             
             incrementDate(date1);
             i++;
         }
@@ -132,9 +131,9 @@ void inputDates(Date& date1, Date& date2)
     cout << "Please enter month of first date: ";
     cin >> date1.month;
     cout << "Please enter year of first date: ";
-    cin >> date1.day;
+    cin >> date1.year;
     
-    cout << "Please enter day of second date: ";
+    cout << endl << "Please enter day of second date: ";
     cin >> date2.day;
     cout << "Please enter month of second date: ";
     cin >> date2.month;
@@ -144,20 +143,28 @@ void inputDates(Date& date1, Date& date2)
 
 bool validDate(Date date)
 {
-    if(date.year < 2000 || or date.year > 2018)
-        return false;
-    
-    if(date.month < 0 || date.month > 12)
-        return false;
-    
-    if(!date.year%4) // leap
+    if((date.year < 2000) || (date.year > 2018))
     {
-        if(date.day < 0 || date.day > DAYS_LEAP[date.month -1])
+	cout << "year fail";
+        return false;
+    }
+    
+    if((date.month < 0) || (date.month > 12))
+    {
+	cout << "month fail";
+        return false;
+    }
+    
+    if(!(date.year%4)) // leap
+    {
+        if((date.day < 0) ||(date.day > DAYS_LEAP[date.month -1]))
             return false;
     }
     else // not leap
-        if(date.day < 0 || date.day > DAYS_NOLEAP[date.month -1])
+    {
+        if((date.day < 0) || (date.day > DAYS_NOLEAP[date.month -1]))
             return false;
+    }
     
     if (!dateEarlierDate(date, GLOBALDATE))
     {
@@ -166,6 +173,7 @@ bool validDate(Date date)
         else
             return false;
     }
+    return true;
 }
 
 /* A utility function to reverse a string  */

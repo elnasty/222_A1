@@ -33,7 +33,7 @@ Inventory::Inventory(const char* txtFileName, const char* bFileName)
 
 Inventory::~Inventory()
 {
-    writeFile("items2.dat");
+    writeFile("items.dat");
 }
 
 void Inventory::viewSummary(Date date1, Date date2)
@@ -42,8 +42,9 @@ void Inventory::viewSummary(Date date1, Date date2)
     displayDate(date1);
     cout << " and ";
     displayDate(date2);
-    cout << endl;
+    cout << endl << endl;
     
+    cout << setfill(' ');
     cout << left << setw(10) << "Stock ID" << setw(10) << "Bought" << setw(10)
          << "Sold" << setw(10) << "Buy Price" << setw(10) << "Sell Price"
          << setw(20) << "Profits" << endl << endl;
@@ -109,6 +110,7 @@ void Inventory::readFile (const char* bFName)
     double d;
     int num;
     char * buffer = new char [LEN];
+    char * buffer2 = new char [LEN];
     int i = 0;
     
     while(!bFile.eof())
@@ -186,13 +188,13 @@ void Inventory::readFile (const char* bFName)
                 amt = atoi (buffer);
                 
                 str = readString(bFile);
-                strcpy(buffer,str.c_str());
+                strcpy(buffer2,str.c_str());
                 
                 str = readString(bFile);
                 strcpy(buffer,str.c_str());
                 inv = atoi (buffer);
                 
-                pt = new Transaction(date, buffer, amt, inv);
+                pt = new Transaction(date, buffer2, amt, inv);
                 ps->transHist.push_back(*pt);
             }
         }

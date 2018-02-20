@@ -39,6 +39,8 @@ class Stock
     void modifyQty(int, char*);
     double getTotalSale();
     void displaySummary(Date, Date);
+    void displaySummary();
+    void getAllBoughtSold(int&, int&);
     void getBoughtSold(int&, int&, Date, Date);
     list<Transaction> transHist;
     

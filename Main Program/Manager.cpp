@@ -384,7 +384,7 @@ void Manager :: reviewTransactionSummary()
 {
     Date date1, date2;
     
-    inputDate(date1, date2);
+    inputDates(date1, date2);
     
     if(!validDate(date1) || !validDate(date2))
     {
@@ -401,9 +401,9 @@ void Manager :: reviewTransactionSummary()
         return;
     }
     
-    if(daysBetweenDates(date1, date2) > 366)
+    if(daysBetween(date1, date2) > 366)
     {
-        cout << "Range between dates must be within a year!"
+        cout << "Range between dates must be within a year!";
         return;
     }
     
