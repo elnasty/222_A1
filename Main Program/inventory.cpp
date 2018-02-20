@@ -109,8 +109,8 @@ void Inventory::readFile (const char* bFName)
     
     string str;
     double d;
-    int num;
-    char * buffer = new char [LEN];
+    int num, year2d; // year 2 digits
+    char buffer[LEN];
     
     // for transaction construction
     int qty;
@@ -153,23 +153,26 @@ void Inventory::readFile (const char* bFName)
         found = false;
         
         list<Stock>::iterator i;
+        stringstream ss;
         for (i = stocks.begin(); i != stocks.end(); ++i)
         {
             if(ps->stockMatch(*i))
             {
                 found = true;
                 i->setQty(i->getQty()+num);
-                str = readString(bFile);
-                strcpy(buffer,str.c_str());
-                date.day = atoi (buffer);
-
-                str = readString(bFile);
-                strcpy(buffer,str.c_str());
+                
+                str = readString(bFile); // this gets the dd-mm-yy into str
+                ss << str;               // dd-mm-yy into stringstream
+                
+                ss >> year;              // yy will come out first
+                date.year = year+2000;
+                
+                ss.getline(buffer, '-'); // first '-' is discarded
+                ss.getline(buffer, '-'); // buffer now contains 3char month
+                
                 date.month = monthToInt(buffer);
 
-                str = readString(bFile);
-                strcpy(buffer,str.c_str());
-                date.year = 2000 + atoi (buffer);
+                ss >> date.day;
 
                 pt = new Transaction(date, qty);
                 i->transHist.push_back(*pt);
@@ -180,17 +183,18 @@ void Inventory::readFile (const char* bFName)
         {
             stocks.push_back(*ps);
         
-            str = readString(bFile);
-            strcpy(buffer,str.c_str());
-            date.day = atoi (buffer);
-
-            str = readString(bFile);
-            strcpy(buffer,str.c_str());
+            str = readString(bFile); // this gets the dd-mm-yy into str
+            ss << str;               // dd-mm-yy into stringstream
+            
+            ss >> year;              // yy will come out first
+            date.year = year+2000;
+                
+            ss.getline(buffer, '-'); // first '-' is discarded
+            ss.getline(buffer, '-'); // buffer now contains 3char month
+                
             date.month = monthToInt(buffer);
 
-            str = readString(bFile);
-            strcpy(buffer,str.c_str());
-            date.year = 2000 + atoi (buffer);
+            ss >> date.day;
 
             pt = new Transaction(date, qty);
             ps->transHist.push_back(*pt);
@@ -199,7 +203,6 @@ void Inventory::readFile (const char* bFName)
     
     //stocks.pop_back();
     totalStock = stocks.size();
-    delete [] buffer;
     bFile.close();
 }
 
