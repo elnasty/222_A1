@@ -184,7 +184,6 @@ void Inventory::readFile (const char* bFName)
         
         if(!found)
         {
-            cout << "first creation of " << ps->getDesc() << " with qty of " << ps->getQty() << endl;
             stocks.push_back(*ps);
             
             str = readString(bFile); // this gets the dd-mm-yy into str
@@ -202,9 +201,6 @@ void Inventory::readFile (const char* bFName)
 
             pt = new Transaction(date, qty);
             ps->transHist.push_back(*pt);
-            cout << "first transaction of " << ps->transHist.front().getQuantitySold() << " on ";
-            displayDate(ps->transHist.front().getDate());
-            cout << endl;
         }
     }
     
