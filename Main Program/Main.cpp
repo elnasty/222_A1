@@ -76,7 +76,6 @@ int main ()
 							cin.clear();
 							cin.ignore(MAXLEN, '\n');
 							
-							inventory.viewSummary();
 							
 							switch (choice2)
 							{
@@ -94,7 +93,7 @@ int main ()
 							}
 							
 							cout << endl;
-							inventory.viewSummary();
+							
 							
 						} while (choice2 != 3);
 					}

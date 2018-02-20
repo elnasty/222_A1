@@ -40,19 +40,53 @@ void Operator::addStockQty ()
 	cin >> itemID;
 	cin.clear();
 	cin.ignore (MAXLEN, '\n');
-	cout << "Please enter Qty: ";
-	cin >> qty;
-	cin.clear();
-	cin.ignore (MAXLEN, '\n');
 	
+	bool found = false;
 	list<Stock>::iterator i;
-    for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
-    {
-    	if (strcmp(itemID, i->getID()) == 0)
+	for (i = inventory.stocks.begin(); i != inventory.stocks.end() && !found; ++i)
+	{
+		if (strcmp(itemID, i->getID()) == 0)
 		{
-	    	i->modifyQty(-(qty), staffID);
+			found = true;
 		}
-    }
+	}
+	
+	if (found)
+	{
+		cout << "Please enter Qty: ";
+		cin >> qty;
+		cin.clear();
+		cin.ignore (MAXLEN, '\n');
+		
+		
+		for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	    {
+	    	if (strcmp(itemID, i->getID()) == 0)
+			{
+		    	i->displaySummary();
+			}
+	    }
+		
+	    for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	    {
+	    	if (strcmp(itemID, i->getID()) == 0)
+			{
+		    	i->modifyQty(-(qty), staffID);
+			}
+	    }
+		
+		for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	    {
+	    	if (strcmp(itemID, i->getID()) == 0)
+			{
+		    	i->displaySummary();
+			}
+	    }
+	}
+	else
+	{
+		cout << "Item with ID \'" << itemID << "\' does not exists!" << endl;
+	}
 }
 
 void Operator::rmStockQty ()
@@ -65,19 +99,53 @@ void Operator::rmStockQty ()
 	cin >> itemID;
 	cin.clear();
 	cin.ignore (MAXLEN, '\n');
-	cout << "Please enter Qty: ";
-	cin >> qty;
-	cin.clear();
-	cin.ignore (MAXLEN, '\n');
 	
+	bool found = false;
 	list<Stock>::iterator i;
-    for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
-    {
-    	if (strcmp(itemID, i->getID()) == 0)
+	for (i = inventory.stocks.begin(); i != inventory.stocks.end() && !found; ++i)
+	{
+		if (strcmp(itemID, i->getID()) == 0)
 		{
-			i->modifyQty(qty, staffID);
+			found = true;
 		}
-    }
+	}
+	
+	if (found)
+	{
+		cout << "Please enter Qty: ";
+		cin >> qty;
+		cin.clear();
+		cin.ignore (MAXLEN, '\n');
+		
+		
+		for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	    {
+	    	if (strcmp(itemID, i->getID()) == 0)
+			{
+		    	i->displaySummary();
+			}
+	    }
+		
+	    for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	    {
+	    	if (strcmp(itemID, i->getID()) == 0)
+			{
+				i->modifyQty(qty, staffID);
+			}
+	    }
+		
+		for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	    {
+	    	if (strcmp(itemID, i->getID()) == 0)
+			{
+		    	i->displaySummary();
+			}
+	    }
+	}
+	else
+	{
+		cout << "Item with ID \'" << itemID << "\' does not exists!" << endl;
+	}
 }
 
 void Operator :: displayOperatorMenu()
