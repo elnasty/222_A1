@@ -357,11 +357,11 @@ void Manager :: reviewTransactionSummary()
         return;
     }
     
-    if(daysBetween(date1, date2) > 366)
+    /*if(daysBetween(date1, date2) > 366)
     {
         cout << "Range between dates must be within a year!";
         return;
-    }
+    }*/
     
     if (dateEarlierDate(date1, date2))
         inventory.viewSummary(date1, date2);

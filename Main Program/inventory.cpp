@@ -167,15 +167,15 @@ void Inventory::readFile (const char* bFName)
                 str = readString(bFile); // this gets the dd-mm-yy into str
                 ss << str;               // dd-mm-yy into stringstream
                 
-                ss >> year2d;              // yy will come out first
-                date.year = year2d + 2000;
+                ss >> date.day;          // dd will come out first
                 
                 ss.get(); // first '-' is discarded
                 ss.getline(buffer, 4, '-'); // buffer now contains 3char month
                 
                 date.month = monthToInt(buffer);
                 
-                ss >> date.day;
+                ss >> year2d;              // yy will come out last
+                date.year = year2d + 2000;
 
                 pt = new Transaction(date, qty);
                 i->transHist.push_back(*pt);
@@ -189,16 +189,16 @@ void Inventory::readFile (const char* bFName)
             
             str = readString(bFile); // this gets the dd-mm-yy into str
             ss << str;               // dd-mm-yy into stringstream
-                
-            ss >> year2d;              // yy will come out first
-            date.year = year2d + 2000;
-                
+              
+            ss >> date.day;          // dd will come out first
+               
             ss.get(); // first '-' is discarded
             ss.getline(buffer, 4, '-'); // buffer now contains 3char month
                 
             date.month = monthToInt(buffer);
                 
-            ss >> date.day;
+            ss >> year2d;              // yy will come out last
+            date.year = year2d + 2000;
 
             pt = new Transaction(date, qty);
             ps->transHist.push_back(*pt);
