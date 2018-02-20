@@ -54,6 +54,7 @@ class Stock
     int getThreshold() const;
     const char* getAlertMessage() const;
     int getTransCount() const;
+    void viewStock();
     
     // mutators
     void setID(char*);

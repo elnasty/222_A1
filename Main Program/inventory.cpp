@@ -90,6 +90,7 @@ void Inventory::encryptFile (const char* tFName, const char* bFName)
         }
     }
     
+    cout << tFName << " and " << bFName << " opened for encryption" << endl;
     tFile.close ();
     bFile.close ();
 }
@@ -293,7 +294,7 @@ bool Inventory::searchStockID(const char* ID)
     {
         if(strcmp(i->getID(), ID) == 0)
 		{
-            i->displaySummary();
+            i->viewStock();
 			found = true;
 		}
     }
@@ -309,7 +310,7 @@ bool Inventory::searchStockCat(const char* cat)
     {
         if(strcmp(i->getCat(), cat) == 0)
 		{
-            i->displaySummary();
+            i->viewStock();
 			found = true;
 		}
     }
@@ -325,7 +326,7 @@ bool Inventory::searchStockSubCat(const char* subCat)
     {
         if(strcmp(i->getSubCat(), subCat) == 0)
 		{
-            i->displaySummary();
+            i->viewStock();
 			found = true;
 		}
     }
@@ -341,7 +342,7 @@ bool Inventory::searchStockPrice(double lower, double upper)
     {
         if(i->getPrice() >= lower && i->getPrice() <= upper)
 		{
-            i->displaySummary();
+            i->viewStock();
 			found = true;
 		}
     }
@@ -357,7 +358,7 @@ bool Inventory::searchStockQtyRange(int lower, int upper)
     {
         if(i->getQty() >= lower && i->getQty() <= upper)
 		{
-            i->displaySummary();
+            i->viewStock();
 			found = true;
 		}
     }

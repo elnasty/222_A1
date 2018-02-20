@@ -91,6 +91,10 @@ public:
 	//Functions that do user validations
     bool validateUser (const char*, const char*);	  
     bool validateEmail (const char*, const char*);
+    void encryptFile (const char*, const char*);
+	 
+	//To populate array of Users from binary file       
+    int readFile (const char*); 
 	
 	//Accessors
 	int totalCount () const;	   	   	  	  	  	  
@@ -104,10 +108,7 @@ private:
 	int count;
 	                
 	//To create a binary file from plain text
-    void encryptFile (const char*, const char*);
-	 
-	//To populate array of Users from binary file       
-    int readFile (const char*);    
+       
 	
 	//To write back to binary file after an edit       	  	  	  	  
     void writeFile (const char*);  

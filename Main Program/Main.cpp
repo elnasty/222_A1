@@ -52,15 +52,21 @@ int main ()
 								case 3: admin.accRecovery();
 								break;
 								
-								case 4:
+								case 4: admin.encryptAccount();
 								break;
+                                                                
+                                                   case 5: admin.encryptInventory();
+								break;
+                                                                
+                                                                case 6:
+                                                                break;
 							
 								default: cout << "Invalid choice! " << endl;
 							}
 							
 							cout << endl;
 							
-						} while (choice1 != 4);
+						} while (choice1 != 6);
 						
 					}
 					else if (whichUser == 'O')

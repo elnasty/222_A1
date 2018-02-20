@@ -9,6 +9,8 @@ class systemAdmin
         void rmAcc();
         void accRecovery();
         void displayAdminMenu();
+        void encryptAccount ();
+        void encryptInventory ();
         
 };
 
@@ -103,7 +105,31 @@ void systemAdmin :: displayAdminMenu()
     cout << "1) Create Account\n";
     cout << "2) Remove Account\n";
     cout << "3) Account Recovery\n";
-    cout << "4) Back\n";
+    cout << "4) Encrypt Account Database\n";
+    cout << "5) Encrypt Inventory Database\n";
+    cout << "6) Back\n";
 	cout << "--------------------------------------\n";
 }
+
+ void systemAdmin :: encryptAccount ()
+ {
+       char txtFileName[MAXLEN];
+       cout << "Enter filename to encrypt: ";
+       cin >> txtFileName;
+       cin.clear ();
+       cin.ignore (MAXLEN, '\n');
+       database.encryptFile (txtFileName, "AccountData.dat");
+       database.readFile ("AccountData.dat");
+ }
+ 
+ void systemAdmin :: encryptInventory ()
+ {
+       char txtFileName[MAXLEN];
+       cout << "Enter filename to encrypt: ";
+       cin >> txtFileName;
+       cin.clear ();
+       cin.ignore (MAXLEN, '\n');
+       inventory.encryptFile (txtFileName, "items.dat");
+       inventory.readFile ("items.dat");
+ }
 

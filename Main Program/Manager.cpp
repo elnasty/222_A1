@@ -163,9 +163,7 @@ void Manager :: editStock()
 										
 				case 'b': 	char itemCat [LEN];
 							cout << "New Category: ";
-							cin >> itemCat;
-							cin.clear ();
-							cin.ignore (MAXLEN, '\n');
+							cin.getline (itemCat, LEN, '\n');
 							
 							
 							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
@@ -180,9 +178,7 @@ void Manager :: editStock()
 										
 				case 'c': 	char itemSubCat [LEN];
 							cout << "New Sub-Category: ";
-							cin >> itemSubCat;
-							cin.clear ();
-							cin.ignore (MAXLEN, '\n');
+							cin.getline (itemSubCat, LEN, '\n');
 							
 							
 							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
@@ -283,9 +279,7 @@ void Manager :: searchStock()
 			break;
 			
 			case 'b': 	cout << "Please enter Item Category: ";
-						cin >> buffer;
-						cin.clear ();
-						cin.ignore (MAXLEN, '\n');
+						cin.getline (buffer, MAXLEN, '\n');
 						if (!inventory.searchStockCat(buffer))
 						{
 							cout << "No item of Category \'" 
@@ -294,9 +288,7 @@ void Manager :: searchStock()
 			break;
 			
 			case 'c':	cout << "Please enter Item Sub-Category: ";
-						cin >> buffer;
-						cin.clear ();
-						cin.ignore (MAXLEN, '\n');
+						cin.getline (buffer, MAXLEN, '\n');
 						if (!inventory.searchStockSubCat(buffer))
 						{
 							cout << "No item of Sub-Category \'" 
@@ -427,11 +419,20 @@ void Manager :: stockAlert()
 						cout << "Alert Message: \'" << alert << "\' set for all stocks!" << endl;
 			break;
 			
-			case 'c':	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+			case 'c':           cout<< left << setw(5) << "ID";
+					    cout<< left << setw(15) << "Category";
+					    cout<< left << setw(15) << "Sub-Category";
+					    cout<< left << setw(15) << "Description";
+					    cout<< left << setw(10) << "Quantity";
+					    cout<< left << setw(15) << "Price" << endl;
+                                            
+						cout<<"-------------------------------------------------------------------------------------" << endl;
+                                
+                        for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
 						{
 							if (i->getQty() <= i->getThreshold())
 							{
-								i -> displaySummary();
+								i -> viewStock();
 								++j;
 							}
 						}

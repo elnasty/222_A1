@@ -120,6 +120,16 @@ void Stock::displaySummary()
     cout << endl << endl;
 }
 
+void Stock::viewStock()
+{
+    cout<< left << setw(5)  << itemID;
+    cout<< left << setw(15) << itemCat;
+    cout<< left << setw(15) << itemSubCat;
+    cout<< left << setw(15) << itemDesc;
+    cout<< left << setw(10) << qty;
+    cout<< left << setw(15) << price << endl;
+}
+
 // accessors
 const char* Stock::getID() const
 {
