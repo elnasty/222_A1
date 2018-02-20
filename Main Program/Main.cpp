@@ -112,26 +112,34 @@ int main ()
 							cout << endl;
 							switch (choice3)
 							{
-								case 1: manager.editStock();
+								case 1: manager.addNewStock();
 								break;
 								
-								case 2: manager.searchStock();
+								case 2:	manager.removeStock();
 								break;
 								
-								case 3: manager.reviewTransactionSummary();
+								case 3: manager.editStock();
 								break;
 								
-								case 4: manager.stockAlert();
+								case 4: manager.searchStock();
 								break;
 								
-								case 5:
+								case 5: manager.reviewTransactionSummary();
+								break;
+								
+								case 6: manager.stockAlert();
+								break;
+								
+								case 7: 
 								break;
 								
 								default:	cout << "Invalid choice! " << endl;
 							
 							}
 							
-						} while (choice3 != 5);
+							cout << endl;
+							
+						} while (choice3 != 7);
 					} 
 					
 			break;

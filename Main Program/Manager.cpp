@@ -9,7 +9,8 @@ class Manager
 		void stockAlert();
 		void searchStock();
 		void reviewTransactionSummary();
-		
+		bool addNewStock ();
+		bool removeStock ();
 		void displayManagerMenu();
 };
 
@@ -21,6 +22,94 @@ Manager::Manager ()
 Manager::~Manager()
 {
 
+}
+
+bool Manager::addNewStock ()
+{
+	Stock newStock;
+	
+	char itemID [LEN];
+    char itemDesc [LEN];
+    char itemCat [LEN];
+    char itemSubCat [LEN];
+    double buyPrice;
+    double sellPrice;
+	int qty;
+	
+	cout << "Item ID: ";
+	cin >> itemID;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	list<Stock>::iterator i;
+	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	{
+		if (strcmp(itemID, i->getID()) == 0)
+		{
+			cout << "Item with ID \'" << itemID << "\' already exists!" << endl;
+			return false;
+		}
+	}
+	
+	cout << "Item Description: ";
+	cin.getline (itemDesc, LEN, '\n');
+	
+	cout << "Item Category: ";
+	cin.getline (itemCat, LEN, '\n');
+	
+	cout << "Item Sub-Category: ";
+	cin.getline (itemSubCat, LEN, '\n');
+	
+	cout << "Item Buy Price: ";
+	cin >> buyPrice;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	cout << "Item Sell Price: ";
+	cin >> sellPrice;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	cout << "Item Quantity: ";
+	cin >> qty;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	newStock.setID (itemID);
+	newStock.setDesc (itemDesc);
+	newStock.setCat (itemCat);
+	newStock.setSubCat (itemSubCat);
+	newStock.setBuyPrice (buyPrice);
+	newStock.setSellPrice (sellPrice);
+	newStock.setQty (qty);
+	
+	inventory.stocks.push_back (newStock);
+	
+	cout << "Item with ID \'" << itemID << "\' successfully created!" << endl;
+	return true;
+}
+
+bool Manager ::removeStock ()
+{
+	char itemID [LEN];
+	cout << "Item ID: ";
+	cin >> itemID;
+	cin.clear();
+	cin.ignore (MAXLEN, '\n');
+	
+	list<Stock>::iterator i;
+	for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
+	{
+		if (strcmp(itemID, i->getID()) == 0)
+		{
+			inventory.stocks.erase(i);
+			cout << "Item with ID \'" << itemID << "\' removed!" << endl;
+			return true;
+		}
+	}
+	
+	cout << "Item with ID \'" << itemID << "\' does not exists!" << endl;
+	return false;
 }
 
 void Manager :: editStock()
@@ -378,11 +467,13 @@ void Manager :: displayManagerMenu()
     cout << "--------------------------------------\n";
     cout << "Manager Menu\n";
     cout << "--------------------------------------\n";
-    cout << "1) Edit Stock\n";
-    cout << "2) Search Stock\n";
-    cout << "3) Review Transaction Summary\n";
-    cout << "4) Manage Stock Alert\n";
-    cout << "5) Logout\n";
+	cout << "1) Add New Stock\n";
+	cout << "2) Remove Stock\n";
+    cout << "3) Edit Stock\n";
+    cout << "4) Search Stock\n";
+    cout << "5) Review Transaction Summary\n";
+    cout << "6) Manage Stock Alert\n";
+    cout << "7) Logout\n";
 	cout << "--------------------------------------\n";
 }
 
