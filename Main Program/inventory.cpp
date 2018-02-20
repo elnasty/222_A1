@@ -183,8 +183,8 @@ void Inventory::readFile (const char* bFName)
         {
             stocks.push_back(*ps);
         
-            str = readString(bFile); // this gets the dd-mm-yy into str
-            ss << str;               // dd-mm-yy into stringstream
+            str = readString(bFile); // this gets the dd-mmm-yy into str
+            ss << str;               // dd-mmm-yy into stringstream
             
             ss >> year2d;              // yy will come out first
             date.year = year2d + 2000;
@@ -220,6 +220,7 @@ void Inventory::writeFile (const char* bFName)
     string str;
     Date date;
     char buffer[LEN];
+    char buffer2[LEN];
     list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
     {
@@ -234,55 +235,56 @@ void Inventory::writeFile (const char* bFName)
             sprintf(buffer, "%f", i->getPrice());
             writeString(bFile, buffer);
             
+            // beneath here should be 'it', since it's the transaction portion
             itoa(it->getQuantitySold(), buffer, 10);
             writeString(bFile, buffer);
             
             date = it->getDate();
-            itoa(date.day, buffer, 10);
-            writeString(bFile, buffer);
+            itoa(date.day, buffer, 10); // buffer now holds dd
             
-            switch(date.month)
+            switch(date.month) // buffer will hold dd-mmm-
             {
                 case 1:
-                    writeString(bFile, "Jan");
+                    strcat(buffer, "-Jan-");
                     break;
                 case 2:
-                    writeString(bFile, "Feb");
+                    strcat(buffer, "-Feb-");
                     break;
                 case 3:
-                    writeString(bFile, "Mar");
+                    strcat(buffer, "-Mar-");
                     break;
                 case 4:
-                    writeString(bFile, "Apr");
+                    strcat(buffer, "-Apr-");
                     break;
                 case 5:
-                    writeString(bFile, "May");
+                    strcat(buffer, "-May-");
                     break;
                 case 6:
-                    writeString(bFile, "Jun");
+                    strcat(buffer, "-Jun-");
                     break;
                 case 7:
-                    writeString(bFile, "Jul");
+                    strcat(buffer, "-Jul-");
                     break;
                 case 8:
-                    writeString(bFile, "Aug");
+                    strcat(buffer, "-Aug-");;
                     break;
                 case 9:
-                    writeString(bFile, "Sep");
+                    strcat(buffer, "-Sep-");
                     break;
                 case 10:
-                    writeString(bFile, "Oct");
+                    strcat(buffer, "-Oct-");
                     break;
                 case 11:
-                    writeString(bFile, "Nov");
+                    strcat(buffer, "-Nov-");
                     break;
                 case 12:
-                    writeString(bFile, "Dec");
+                    strcat(buffer, "-Dec-");;
                     break;
                 default:
-                    writeString(bFile, "???");
+                    strcat(buffer, "-???-");
             }
-            itoa(date.year, buffer, 10);
+            itoa((date.year-2000), buffer2, 10); // buffer2 holds yy
+            strcat(buffer, buffer2);      // buffer now holds dd-mmm-yy
             writeString(bFile, buffer);
         }    
     }
