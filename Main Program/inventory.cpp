@@ -186,8 +186,8 @@ void Inventory::readFile (const char* bFName)
             str = readString(bFile); // this gets the dd-mm-yy into str
             ss << str;               // dd-mm-yy into stringstream
             
-            ss >> year;              // yy will come out first
-            date.year = year+2000;
+            ss >> year2d;              // yy will come out first
+            date.year = year2d + 2000;
                 
             ss.getline(buffer, '-'); // first '-' is discarded
             ss.getline(buffer, '-'); // buffer now contains 3char month
