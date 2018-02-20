@@ -38,7 +38,8 @@ class Stock
     ~Stock();
     void modifyQty(int, char*);
     double getTotalSale();
-    void displaySummary();
+    void displaySummary(Date, Date);
+    void getBoughtSold(int&, int&, Date, Date);
     list<Transaction> transHist;
     
     // accessors

@@ -7,11 +7,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/exampleHeaders.h</file>
-            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/inventory.h</file>
-            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/date.h</file>
-            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/stock.h</file>
-            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/transaction.h</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/User.cpp</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/Main.cpp</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/Operator.cpp</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/inventory.cpp</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/stock.cpp</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/inventory.h</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/transaction.cpp</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/date.h</file>
+            <file>file:/C:/Users/Le%20Buff/Documents/NetBeansProjects/222_A1/Main%20Program/transaction.h</file>
         </group>
     </open-files>
 </project-private>

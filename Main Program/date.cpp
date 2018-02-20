@@ -26,8 +26,146 @@ void updateDate(Date& date)
 
 void displayDate(Date date)
 {
-    cout << setfill('0') << setw(2) << date.day << "-" << setw(2) << date.month 
-         << "-" << date.year << endl;
+    cout << setfill('0') << setw(2) << date.day << "/" << setw(2) << date.month 
+         << "/" << date.year;
+}
+
+void incrementDate(Date date)
+{
+    date.day += 1;
+    
+    if (!(date.year % 4)) // leap year
+    {
+        if (date.day > DAYS_LEAP [date.month - 1])
+        {
+            date.day = 1;
+            date.month += 1;
+        }
+        
+        if (date.month > 12)
+        {
+            date.month = 1;
+            date.year += 1;
+        }
+    }
+    else
+    {
+        if (date.day > DAYS_NOLEAP [date.month - 1])
+        {
+            date.day = 1;
+            date.month += 1;
+        }
+        
+        if (date.month > 12)
+        {
+            date.month = 1;
+            date.year += 1;
+        }
+    }   
+}
+
+bool sameDate(Date date1, Date date2)
+{
+    if(date1.day == date2.day)
+        if(date1.month == date2.month)
+            if(date1.year == date2.year)
+                return true;
+    
+    return false;
+}
+
+bool dateEarlierDate(Date date1, Date date2)
+{
+    if(date1.year > date2.year) // date1 year later
+        return false;
+    else if (date1.year < date2.year) //date1 year earlier
+        return true;
+    
+    // means years are equal
+    if(date1.month > date2.month) // date1 month later
+        return false;
+    else if (date1.month < date2.month) // date1 month earlier
+        return true;
+    
+    // means months are equal
+    if(date1.day >= date2.day) // date1 day later OR EQUALS
+        return false;
+    else if (date1.day < date2.day) // date1 day earlier
+        return true;    
+}
+
+int daysBetween(Date date1, Date date2)
+{
+    int i = 0;
+    bool date2earlier = false;
+    
+    if(dateEarlierDate(date1, date2))
+        while (!sameDate(date1, date2))
+        {
+            incrementDate(date1);
+            i++;
+        }
+    else // date 2 is the earlier date
+        while (!sameDate(date2, date1))
+        {
+            incrementDate(date2);
+            i++;
+        }
+    return i;
+}
+
+bool dateWithin(Date within, Date date1, Date date2)
+{
+    while(!sameDate(date1, date2))
+    {
+        incrementDate(date1);
+        if(sameDate(within, date1))
+            return true;
+    }
+    return false;
+}
+
+void inputDates(Date& date1, Date& date2)
+{
+    cout << "Please enter day of first date: ";
+    cin >> date1.day;
+    cout << "Please enter month of first date: ";
+    cin >> date1.month;
+    cout << "Please enter year of first date: ";
+    cin >> date1.day;
+    
+    cout << "Please enter day of second date: ";
+    cin >> date2.day;
+    cout << "Please enter month of second date: ";
+    cin >> date2.month;
+    cout << "Please enter year of second date: ";
+    cin >> date2.year;
+}
+
+bool validDate(Date date)
+{
+    if(date.year < 2000 || or date.year > 2018)
+        return false;
+    
+    if(date.month < 0 || date.month > 12)
+        return false;
+    
+    if(!date.year%4) // leap
+    {
+        if(date.day < 0 || date.day > DAYS_LEAP[date.month -1])
+            return false;
+    }
+    else // not leap
+        if(date.day < 0 || date.day > DAYS_NOLEAP[date.month -1])
+            return false;
+    
+    if (!dateEarlierDate(date, GLOBALDATE))
+    {
+        if(sameDate(date, GLOBALDATE))
+            return true;
+        else
+            return false;
+    }
 }
 
 /* A utility function to reverse a string  */

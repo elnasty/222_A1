@@ -40,21 +40,39 @@ double Stock::getTotalSale()
     //
 }
 
-void Stock::displaySummary()
+void Stock::getBoughtSold(int& bought, int& sold, Date date1, Date date2)
 {
-    cout << "Item ID           : " << itemID << endl;
-    cout << "Item Category     : " << itemCat << endl;
-    cout << "Item Sub Category : " << itemSubCat << endl;
-    cout << "Item Description  : " << itemDesc << endl;
-    cout << "Quantity          : " << qty << endl;
-    cout << "Buy Price         : " << buyPrice << endl;
-    cout << "Sell Price        : " << sellPrice << endl;
-	
     list<Transaction>::iterator i;
     if (transHist.size() == 0)
-        cout << "No transactions to display" << endl;
+        return;
     for (i = transHist.begin(); i != transHist.end(); ++i)
-    	i->displayTrans();
+    {
+        if(dateWithin(i->getDate(), date1, date2))
+        {
+            if(i->getQuantitySold() > 0)
+                sold += i->getQuantitySold();
+            else
+                bought += -(i->getQuantitySold());
+        }
+    }
+}
+
+void Stock::displaySummary(Date date1, Date date2)
+{
+    int bought = 0, sold = 0;
+    double profits = 0.0;
+    
+    getBoughtSold(bought, sold, date1, date2);
+    profits = sold*sellPrice - bought*buyPrice;
+    
+    cout << fixed << setprecision(2);
+    cout << left << setw(10) << itemID << setw(10) << bought << setw(10)
+         << sold << setw(10) << buyPrice << setw(10) << sellPrice
+         << setw(20) << profits << endl << endl;
+    	
+    list<Transaction>::iterator i;
+    for (i = transHist.begin(); i != transHist.end(); ++i)
+    	i->displayTrans(date1, date2);
     
     cout << endl << endl;
 }

@@ -36,11 +36,21 @@ Inventory::~Inventory()
     writeFile("items2.dat");
 }
 
-void Inventory::viewSummary()
+void Inventory::viewSummary(Date date1, Date date2)
 {
+    cout << "Transaction Summary between ";
+    displayDate(date1);
+    cout << " and ";
+    displayDate(date2);
+    cout << endl;
+    
+    cout << left << setw(10) << "Stock ID" << setw(10) << "Bought" << setw(10)
+         << "Sold" << setw(10) << "Buy Price" << setw(10) << "Sell Price"
+         << setw(20) << "Profits" << endl << endl;
+    
     list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
-    	i->displaySummary();
+    	i->displaySummary(date1, date2);
 }
 
 void Inventory::addStock()

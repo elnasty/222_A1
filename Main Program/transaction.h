@@ -26,7 +26,7 @@ class Transaction
      Transaction(Date, char*, int);
      Transaction(Date, char*, int, int);
      ~Transaction();
-     void displayTrans();
+     void displayTrans(Date, Date);
      
      // mutator accessor
      void setQuantitySold(int);

@@ -31,7 +31,7 @@ class Inventory
     void addStock();
     void removeStock();
     void updateStock();
-    void viewSummary();
+    void viewSummary(Date, Date);
     void encryptFile(const char*, const char*);
     void readFile(const char*);
     void writeFile(const char*);

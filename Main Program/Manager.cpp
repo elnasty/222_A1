@@ -382,7 +382,35 @@ void Manager :: searchStock()
 
 void Manager :: reviewTransactionSummary()
 {
-	inventory.viewSummary();
+    Date date1, date2;
+    
+    inputDate(date1, date2);
+    
+    if(!validDate(date1) || !validDate(date2))
+    {
+        if(!validDate(date1))
+        {
+            displayDate(date1);
+            cout << " is not a valid date!" << endl;
+        }
+        if(!validDate(date2))
+        {
+            displayDate(date2);
+            cout << " is not a valid date!" << endl;
+        }
+        return;
+    }
+    
+    if(daysBetweenDates(date1, date2) > 366)
+    {
+        cout << "Range between dates must be within a year!"
+        return;
+    }
+    
+    if (dateEarlierDate(date1, date2))
+        inventory.viewSummary(date1, date2);
+    else
+        inventory.viewSummary(date2, date1);
 }
 
 void Manager :: stockAlert()
