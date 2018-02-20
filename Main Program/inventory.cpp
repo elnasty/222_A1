@@ -114,7 +114,7 @@ void Inventory::readFile (const char* bFName)
     
     // for transaction construction
     int qty;
-    bool found;
+    bool found = false;
     
     while(!bFile.eof())
     {
