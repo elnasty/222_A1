@@ -38,8 +38,7 @@ class Inventory
     bool searchStockID(const char*);
     bool searchStockCat(const char*);
 	bool searchStockSubCat(const char*);
-	bool searchStockBuyPrice(double, double);
-	bool searchStockSellPrice(double, double);
+	bool searchStockPrice(double, double);
 	bool searchStockQtyRange(int, int);
 	
  

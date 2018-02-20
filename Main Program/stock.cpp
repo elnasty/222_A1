@@ -42,13 +42,13 @@ double Stock::getTotalSale()
 
 bool Stock::stockMatch(Stock s) const
 {
-    if(strcmp(itemId), s.getID())
+    if(strcmp(itemID, s.getID()))
         return false;
-    if(strcmp(itemDesc), s.getDesc())
+    if(strcmp(itemDesc, s.getDesc()))
         return false;
-    if(strcmp(itemCat), s.getCat())
+    if(strcmp(itemCat, s.getCat()))
         return false;
-    if(strcmp(itemSubCat), s.getSubCat())
+    if(strcmp(itemSubCat, s.getSubCat()))
         return false;
     if( price != s.getPrice())
         return false;
@@ -109,8 +109,7 @@ void Stock::displaySummary()
     cout << "Item Sub Category : " << itemSubCat << endl;
     cout << "Item Description  : " << itemDesc << endl;
     cout << "Quantity          : " << qty << endl;
-    cout << "Buy Price         : " << buyPrice << endl;
-    cout << "Sell Price        : " << sellPrice << endl;
+    cout << "Price             : " << price << endl;
 	
     list<Transaction>::iterator i;
     if (transHist.size() == 0)
@@ -178,7 +177,7 @@ void Stock::setSubCat(char* subCat)
 }
 void Stock::setPrice(double p)
 {
-    buyPrice = p;
+    price = p;
 }
 void Stock::setQty(int q)
 {

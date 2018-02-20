@@ -32,8 +32,8 @@ bool Manager::addNewStock ()
     char itemDesc [LEN];
     char itemCat [LEN];
     char itemSubCat [LEN];
-    double buyPrice;
-    double sellPrice;
+    double price;
+    
 	int qty;
 	
 	cout << "Item ID: ";
@@ -60,13 +60,8 @@ bool Manager::addNewStock ()
 	cout << "Item Sub-Category: ";
 	cin.getline (itemSubCat, LEN, '\n');
 	
-	cout << "Item Buy Price: ";
-	cin >> buyPrice;
-	cin.clear();
-	cin.ignore (MAXLEN, '\n');
-	
-	cout << "Item Sell Price: ";
-	cin >> sellPrice;
+	cout << "Item Price: ";
+	cin >> price;
 	cin.clear();
 	cin.ignore (MAXLEN, '\n');
 	
@@ -79,8 +74,7 @@ bool Manager::addNewStock ()
 	newStock.setDesc (itemDesc);
 	newStock.setCat (itemCat);
 	newStock.setSubCat (itemSubCat);
-	newStock.setBuyPrice (buyPrice);
-	newStock.setSellPrice (sellPrice);
+	newStock.setPrice (price);
 	newStock.setQty (qty);
 	
 	inventory.stocks.push_back (newStock);
@@ -142,10 +136,9 @@ void Manager :: editStock()
 			cout << "a) Item Description\n";
 			cout << "b) Category\n";
 			cout << "c) Sub-Category\n";
-			cout << "d) Buy Price\n";
-			cout << "e) Sell Price\n";
-			cout << "f) Quantity\n";
-			cout << "g) Back\n";
+			cout << "d) Price\n";
+			cout << "e) Quantity\n";
+			cout << "f) Back\n";
 			cout << "--------------------------------------\n";
 			cout << "Choice: ";
 			cin >> choice;
@@ -201,9 +194,9 @@ void Manager :: editStock()
 							}
 				break;
 										
-				case 'd':	double buyPrice;
-							cout << "New Buy Price: ";
-							cin >> buyPrice;
+				case 'd':	double price;
+							cout << "New Price: ";
+							cin >> price;
 							cin.clear ();
 							cin.ignore (MAXLEN, '\n');
 							
@@ -212,28 +205,13 @@ void Manager :: editStock()
 							{
 								if (strcmp(itemID, i->getID()) == 0)
 								{
-									i -> setBuyPrice (buyPrice);
+									i -> setPrice (price);
 								}
 							}
 				break;
 				
-				case 'e':	double sellPrice;
-							cout << "New Sell Price: ";
-							cin >> sellPrice;
-							cin.clear ();
-							cin.ignore (MAXLEN, '\n');
-							
-							
-							for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
-							{
-								if (strcmp(itemID, i->getID()) == 0)
-								{
-									i -> setSellPrice (sellPrice);
-								}
-							}
-				break;
 				
-				case 'f':	int qty;
+				case 'e':	int qty;
 							cout << "New Quantity: ";
 							cin >> qty;
 							cin.clear ();
@@ -249,14 +227,14 @@ void Manager :: editStock()
 							}
 				break;
 				
-				case 'g':
+				case 'f':
 				break;
 									
 				default: cout << "Invalid choice! " << endl;
 			}
 			cout << endl;
 		
-		} while (choice != 'g');
+		} while (choice != 'f');
 	}
 	else
 	{
@@ -281,10 +259,9 @@ void Manager :: searchStock()
 		cout << "a) Item ID\n";
 		cout << "b) Category\n";
 		cout << "c) Sub-Category\n";
-		cout << "d) Buy Price Range\n";
-		cout << "e) Sell Price Range\n";
-		cout << "f) Quantity Range\n";
-		cout << "g) Back\n";
+		cout << "d) Price Range\n";
+		cout << "e) Quantity Range\n";
+		cout << "f) Back\n";
 		cout << "--------------------------------------\n";
 		cout << "Choice: ";
 		cin >> choice;
@@ -327,35 +304,22 @@ void Manager :: searchStock()
 						}
 			break;
 			
-			case 'd':	cout << "Please enter Item Buy Price lower range: ";
+			case 'd':	cout << "Please enter Item Price lower range: ";
 						cin >> lower;
 						cin.clear ();
 						cin.ignore (MAXLEN, '\n');
-						cout << "Please enter Item Buy Price upper range: ";
+						cout << "Please enter Item Price upper range: ";
 						cin >> upper;
 						cin.clear ();
 						cin.ignore (MAXLEN, '\n');
-						if (!inventory.searchStockBuyPrice(lower, upper))
+						if (!inventory.searchStockPrice(lower, upper))
 						{
 							cout << "No item found within range!" << endl;
 						}
 			break;
 			
-			case 'e':	cout << "Please enter Item Sell Price lower range: ";
-						cin >> lower;
-						cin.clear ();
-						cin.ignore (MAXLEN, '\n');
-						cout << "Please enter Item Sell Price upper range: ";
-						cin >> upper;
-						cin.clear ();
-						cin.ignore (MAXLEN, '\n');
-						if (!inventory.searchStockSellPrice(lower, upper))
-						{
-							cout << "No item found within range!" << endl;
-						}
-			break;
 			
-			case 'f':	cout << "Please enter Item Quantity lower range: ";
+			case 'e':	cout << "Please enter Item Quantity lower range: ";
 						cin >> lower1;
 						cin.clear ();
 						cin.ignore (MAXLEN, '\n');
@@ -369,7 +333,7 @@ void Manager :: searchStock()
 						}
 			break;
 			
-			case 'g':
+			case 'f':
 			break;
 			
 			default: cout << "Invalid choice! " << endl;
@@ -377,7 +341,7 @@ void Manager :: searchStock()
 		
 		cout << endl;
 	}
-	while (choice != 'g');
+	while (choice != 'f');
 }
 
 void Manager :: reviewTransactionSummary()

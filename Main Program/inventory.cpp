@@ -154,7 +154,7 @@ void Inventory::readFile (const char* bFName)
         list<Stock>::iterator i;
         for (i = stocks.begin(); i != stocks.end(); ++i)
         {
-            if(i->stockMatch(*ps))
+            if(ps->stockMatch(*i))
             {
                 found = true;
                 i->setQty(i->getQty()+num);
@@ -333,29 +333,13 @@ bool Inventory::searchStockSubCat(const char* subCat)
 	return found;
 }
 
-bool Inventory::searchStockBuyPrice(double lower, double upper)
+bool Inventory::searchStockPrice(double lower, double upper)
 {
 	bool found = false;
     list<Stock>::iterator i;
     for (i = stocks.begin(); i != stocks.end(); ++i)
     {
-        if(i->getBuyPrice() >= lower && i->getBuyPrice() <= upper)
-		{
-            i->displaySummary();
-			found = true;
-		}
-    }
-	
-	return found;
-}
-
-bool Inventory::searchStockSellPrice(double lower, double upper)
-{
-	bool found = false;
-    list<Stock>::iterator i;
-    for (i = stocks.begin(); i != stocks.end(); ++i)
-    {
-        if(i->getSellPrice() >= lower && i->getSellPrice() <= upper)
+        if(i->getPrice() >= lower && i->getPrice() <= upper)
 		{
             i->displaySummary();
 			found = true;
