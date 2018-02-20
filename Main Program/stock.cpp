@@ -79,34 +79,33 @@ void Stock::displaySummary(Date date1, Date date2)
     getBoughtSold(bought, sold, date1, date2);
     profits = sold*sellPrice - bought*buyPrice;
     
-    cout << fixed << setprecision(2) << setfill(' ') << endl;
+    cout << fixed << setprecision(2) << setfill(' ');
     cout << left << setw(10) << itemID << setw(10) << bought << setw(10)
-         << sold << setw(10) << buyPrice << setw(10) << sellPrice
-         << setw(20) << profits << endl << endl;
+         << sold << setw(15) << buyPrice << setw(15) << sellPrice
+         << setw(15) << profits << endl;
     	
     list<Transaction>::iterator i;
     for (i = transHist.begin(); i != transHist.end(); ++i)
     	i->displayTrans(date1, date2);
-    
-    cout << endl << endl;
 }
 
 void Stock::displaySummary()
 {
-    int bought = 0, sold = 0;
-    double profits = 0.0;
-    
-    getAllBoughtSold(bought, sold);
-    profits = sold*sellPrice - bought*buyPrice;
-    
-    cout << fixed << setprecision(2) << setfill(' ') << endl;
-    cout << left << setw(10) << itemID << setw(10) << bought << setw(10)
-         << sold << setw(10) << buyPrice << setw(10) << sellPrice
-         << setw(20) << profits << endl;
-    	
+    cout << "Item ID           : " << itemID << endl;
+    cout << "Item Category     : " << itemCat << endl;
+    cout << "Item Sub Category : " << itemSubCat << endl;
+    cout << "Item Description  : " << itemDesc << endl;
+    cout << "Quantity          : " << qty << endl;
+    cout << "Buy Price         : " << buyPrice << endl;
+    cout << "Sell Price        : " << sellPrice << endl;
+	
     list<Transaction>::iterator i;
+    if (transHist.size() == 0)
+        cout << "No transactions to display" << endl;
     for (i = transHist.begin(); i != transHist.end(); ++i)
     	i->displayTrans();
+    
+    cout << endl << endl;
 }
 
 // accessors
