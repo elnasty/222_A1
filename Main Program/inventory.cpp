@@ -33,7 +33,7 @@ Inventory::Inventory(const char* txtFileName, const char* bFileName)
 
 Inventory::~Inventory()
 {
-    writeFile("items.dat");
+    writeFile("items2.dat");
 }
 
 void Inventory::viewSummary(Date date1, Date date2)
@@ -86,7 +86,7 @@ void Inventory::encryptFile (const char* tFName, const char* bFName)
         while (pc != NULL)
         {
             writeString(bFile, pc);
-            pc = strtok (NULL, ":-");
+            pc = strtok (NULL, ":");
         }
     }
     
