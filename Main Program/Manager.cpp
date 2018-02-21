@@ -271,6 +271,13 @@ void Manager :: searchStock()
 						cin >> buffer;
 						cin.clear ();
 						cin.ignore (MAXLEN, '\n');
+                                                cout<< left << setw(5) << "ID";
+                                                cout<< left << setw(20) << "Category";
+                                                cout<< left << setw(20) << "Sub-Category";
+                                                cout<< left << setw(25) << "Description";
+                                                cout<< left << setw(10) << "Quantity";
+                                                cout<< left << setw(10) << "Price" << endl;
+                                                cout<<"-------------------------------------------------------------------------------------" << endl;
 						if (!inventory.searchStockID(buffer))
 						{
 							cout << "No item of ID \'" 
@@ -280,6 +287,13 @@ void Manager :: searchStock()
 			
 			case 'b': 	cout << "Please enter Item Category: ";
 						cin.getline (buffer, MAXLEN, '\n');
+                                                cout<< left << setw(5) << "ID";
+                                                cout<< left << setw(20) << "Category";
+                                                cout<< left << setw(20) << "Sub-Category";
+                                                cout<< left << setw(25) << "Description";
+                                                cout<< left << setw(10) << "Quantity";
+                                                cout<< left << setw(10) << "Price" << endl;
+                                                cout<<"-------------------------------------------------------------------------------------" << endl;
 						if (!inventory.searchStockCat(buffer))
 						{
 							cout << "No item of Category \'" 
@@ -289,6 +303,13 @@ void Manager :: searchStock()
 			
 			case 'c':	cout << "Please enter Item Sub-Category: ";
 						cin.getline (buffer, MAXLEN, '\n');
+                                                cout<< left << setw(5) << "ID";
+                                                cout<< left << setw(20) << "Category";
+                                                cout<< left << setw(20) << "Sub-Category";
+                                                cout<< left << setw(25) << "Description";
+                                                cout<< left << setw(10) << "Quantity";
+                                                cout<< left << setw(10) << "Price" << endl;
+                                                cout<<"-------------------------------------------------------------------------------------" << endl;
 						if (!inventory.searchStockSubCat(buffer))
 						{
 							cout << "No item of Sub-Category \'" 
@@ -304,6 +325,13 @@ void Manager :: searchStock()
 						cin >> upper;
 						cin.clear ();
 						cin.ignore (MAXLEN, '\n');
+                                                cout<< left << setw(5) << "ID";
+                                                cout<< left << setw(20) << "Category";
+                                                cout<< left << setw(20) << "Sub-Category";
+                                                cout<< left << setw(25) << "Description";
+                                                cout<< left << setw(10) << "Quantity";
+                                                cout<< left << setw(10) << "Price" << endl;
+                                                cout<<"-------------------------------------------------------------------------------------" << endl;
 						if (!inventory.searchStockPrice(lower, upper))
 						{
 							cout << "No item found within range!" << endl;
@@ -319,6 +347,13 @@ void Manager :: searchStock()
 						cin >> upper1;
 						cin.clear ();
 						cin.ignore (MAXLEN, '\n');
+                                                cout<< left << setw(5) << "ID";
+                                                cout<< left << setw(20) << "Category";
+                                                cout<< left << setw(20) << "Sub-Category";
+                                                cout<< left << setw(25) << "Description";
+                                                cout<< left << setw(10) << "Quantity";
+                                                cout<< left << setw(10) << "Price" << endl;
+                                                cout<<"-------------------------------------------------------------------------------------" << endl;
 						if (!inventory.searchStockQtyRange(lower1, upper1))
 						{
 							cout << "No item found within range!" << endl;
@@ -420,13 +455,12 @@ void Manager :: stockAlert()
 			break;
 			
 			case 'c':           cout<< left << setw(5) << "ID";
-					    cout<< left << setw(15) << "Category";
-					    cout<< left << setw(15) << "Sub-Category";
-					    cout<< left << setw(15) << "Description";
+					    cout<< left << setw(20) << "Category";
+					    cout<< left << setw(20) << "Sub-Category";
+					    cout<< left << setw(25) << "Description";
 					    cout<< left << setw(10) << "Quantity";
-					    cout<< left << setw(15) << "Price" << endl;
-                                            
-						cout<<"-------------------------------------------------------------------------------------" << endl;
+					    cout<< left << setw(10) << "Price" << endl;
+                                            cout<<"-------------------------------------------------------------------------------------" << endl;
                                 
                         for (i = inventory.stocks.begin(); i != inventory.stocks.end(); ++i)
 						{

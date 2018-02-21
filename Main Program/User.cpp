@@ -1,7 +1,7 @@
 #include "AccountHeader.h"
 
 AccountData database ("AccountData.dat");
-Inventory inventory ("items.txt", "items.dat");
+Inventory inventory ("items.dat");
 
 //Constructors
 User::User ()

@@ -125,11 +125,11 @@ void Stock::displaySummary()
 void Stock::viewStock()
 {
     cout<< left << setw(5)  << itemID;
-    cout<< left << setw(15) << itemCat;
-    cout<< left << setw(15) << itemSubCat;
-    cout<< left << setw(15) << itemDesc;
+    cout<< left << setw(20) << itemCat;
+    cout<< left << setw(20) << itemSubCat;
+    cout<< left << setw(25) << itemDesc;
     cout<< left << setw(10) << qty;
-    cout<< left << setw(15) << price << endl;
+    cout<< left << setw(10) << price << endl;
 }
 
 // accessors

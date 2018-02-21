@@ -33,7 +33,7 @@ Inventory::Inventory(const char* txtFileName, const char* bFileName)
 
 Inventory::~Inventory()
 {
-    writeFile("items2.dat");
+    writeFile("items.dat");
 }
 
 void Inventory::viewSummary(Date date1, Date date2)
