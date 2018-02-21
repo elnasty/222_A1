@@ -157,7 +157,7 @@ void Inventory::readFile (const char* bFName)
         
         list<Stock>::iterator i;
         stringstream ss;
-        for (i = stocks.begin(); i != stocks.end(); ++i)
+        for (i = stocks.begin(); i != stocks.end(); i++)
         {
             if(ps->stockMatch(*i))
             {
@@ -183,9 +183,7 @@ void Inventory::readFile (const char* bFName)
         }
         
         if(!found)
-        {
-            stocks.push_back(*ps);
-            
+        {            
             str = readString(bFile); // this gets the dd-mm-yy into str
             ss << str;               // dd-mm-yy into stringstream
               
@@ -201,6 +199,7 @@ void Inventory::readFile (const char* bFName)
 
             pt = new Transaction(date, qty);
             ps->transHist.push_back(*pt);
+            stocks.push_back(*ps);
         }
     }
     
@@ -225,10 +224,10 @@ void Inventory::writeFile (const char* bFName)
     char buffer[LEN];
     char buffer2[LEN];
     list<Stock>::iterator i;
-    for (i = stocks.begin(); i != stocks.end(); ++i)
+    for (i = stocks.begin(); i != stocks.end(); i++)
     {
         list<Transaction>::iterator it;
-        for(it = i->transHist.begin(); it != i->transHist.end(); ++it)
+        for(it = i->transHist.begin(); it != i->transHist.end(); it++)
         {
             writeString(bFile, i->getID());
             writeString(bFile, i->getDesc());

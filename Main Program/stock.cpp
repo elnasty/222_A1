@@ -31,7 +31,7 @@ void Stock::modifyQty(int amt)
     qty = qty - amt;
     Transaction* pt = new Transaction(GLOBALDATE, amt);
 	
-    transHist.push_front(*pt);
+    transHist.push_back(*pt);
     transCount = transHist.size();
 }
 
